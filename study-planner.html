@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Planner — Ali Raza</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="study-planner.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">◎ Study Planner</div>
+  <a href="index.html" class="back-home">← Portfolio</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-greeting">
+      <div class="eyebrow">// Personal Dashboard</div>
+      <h1>Welcome <span>back</span></h1>
+      <div class="hero-date" id="todayDate"></div>
+    </div>
+    <div class="streak-badge">
+      <div>
+        <div class="streak-num" id="streakNum">0</div>
+        <div class="streak-label">Day Streak</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card c-green">
+      <div class="stat-val" id="statToday">0m</div>
+      <div class="stat-lbl">Studied Today</div>
+    </div>
+    <div class="stat-card c-orange">
+      <div class="stat-val" id="statSessions">0</div>
+      <div class="stat-lbl">Sessions Today</div>
+    </div>
+    <div class="stat-card c-blue">
+      <div class="stat-val" id="statTasks">0/0</div>
+      <div class="stat-lbl">Tasks Completed</div>
+    </div>
+    <div class="stat-card c-purple">
+      <div class="stat-val" id="statProgress">—</div>
+      <div class="stat-lbl">Overall Syllabus Progress</div>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="col">
+
+      <!-- SUBJECT PROGRESS -->
+      <div class="panel">
+        <div class="panel-header"><h2>📚 Subject Progress</h2></div>
+        <div class="panel-body" style="padding-bottom:0.5rem">
+          <div class="input-row">
+            <input type="text" id="subjectInput" placeholder="Add a subject (e.g. Computer Science)...">
+            <button id="subjectAddBtn">Add Subject</button>
+          </div>
+        </div>
+        <div id="subjectList"></div>
+        <div id="subjectEmpty" class="empty-state" style="padding:0 1.4rem 1.25rem">No subjects yet — add one above, then add chapters/topics underneath it to track your syllabus.</div>
+      </div>
+
+      <!-- WEEKLY CHART -->
+      <div class="panel">
+        <div class="panel-header"><h2>📊 This Week's Focus Time</h2></div>
+        <div class="panel-body">
+          <div class="chart-wrap">
+            <div class="chart-bars" id="chartBars"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col">
+
+      <!-- POMODORO TIMER -->
+      <div class="panel">
+        <div class="panel-header"><h2>⏱ Focus Timer</h2></div>
+        <div class="panel-body timer-wrap">
+          <div>
+            <div class="duration-label" style="margin-bottom:0.5rem">Session length</div>
+            <div class="mode-tabs" id="durationTabs">
+              <button class="mode-tab active" data-mins="25">25m</button>
+              <button class="mode-tab" data-mins="30">30m</button>
+              <button class="mode-tab" data-mins="45">45m</button>
+              <button class="mode-tab" data-mins="50">50m</button>
+              <button class="mode-tab" data-mins="60">1h</button>
+            </div>
+          </div>
+          <div class="timer-ring-wrap">
+            <svg width="220" height="220" viewBox="0 0 220 220">
+              <circle class="timer-track" cx="110" cy="110" r="100"></circle>
+              <circle class="timer-progress" id="timerProgress" cx="110" cy="110" r="100"
+                stroke-dasharray="628.3" stroke-dashoffset="0"></circle>
+            </svg>
+            <div class="timer-display">
+              <div class="timer-time" id="timerTime">25:00</div>
+              <div class="timer-mode-label" id="timerModeLabel">Focus Session</div>
+            </div>
+          </div>
+          <div class="timer-controls">
+            <button class="timer-btn primary" id="startBtn">Start</button>
+            <button class="timer-btn secondary" id="resetBtn">Reset</button>
+          </div>
+          <div class="session-count">Completed today: <span id="sessionCountLabel">0</span> sessions</div>
+        </div>
+      </div>
+
+      <!-- TODO LIST -->
+      <div class="panel">
+        <div class="panel-header"><h2>✅ Tasks</h2></div>
+        <div class="panel-body">
+          <div class="input-row">
+            <input type="text" id="todoInput" placeholder="Add a task...">
+            <button id="todoAddBtn">Add</button>
+          </div>
+          <div class="todo-list" id="todoList"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>Ali Raza — Study Planner</span>
+  <button class="reset-btn" id="resetAllBtn">Reset All Data</button>
+</footer>
+
+<script>
+/* ============================================
+   STORAGE HELPERS
+   ============================================ */
+const todayKey = () => {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+};
+function load(key, fallback) {
+  try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : fallback; }
+  catch(e) { return fallback; }
+}
+function save(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+function uid() { return Math.random().toString(36).slice(2, 10); }
+
+/* ============================================
+   DATA
+   ============================================ */
+let subjects = load('sp_subjects_v2', []);      // [{id, name, topics:[{id,name,done}]}]
+let tasks = load('sp_tasks_v2', []);            // [{id, text, done}]
+let sessions = load('sp_sessions', {});         // {date: minutes}
+let sessionCounts = load('sp_session_counts', {}); // {date: count}
+
+/* ============================================
+   DATE
+   ============================================ */
+document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-GB', {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+});
+
+/* ============================================
+   SUBJECTS — fully user-defined
+   ============================================ */
+document.getElementById('subjectAddBtn').addEventListener('click', addSubject);
+document.getElementById('subjectInput').addEventListener('keypress', e => { if (e.key === 'Enter') addSubject(); });
+
+function addSubject() {
+  const input = document.getElementById('subjectInput');
+  const name = input.value.trim();
+  if (!name) return;
+  subjects.push({ id: uid(), name, topics: [] });
+  save('sp_subjects_v2', subjects);
+  input.value = '';
+  renderSubjects();
+}
+
+function renderSubjects() {
+  const list = document.getElementById('subjectList');
+  const emptyMsg = document.getElementById('subjectEmpty');
+  list.innerHTML = '';
+  emptyMsg.style.display = subjects.length === 0 ? 'block' : 'none';
+
+  let totalDone = 0, totalAll = 0;
+
+  subjects.forEach((subject, sIdx) => {
+    const colorClass = 'col-' + (sIdx % 6);
+    const done = subject.topics.filter(t => t.done).length;
+    const total = subject.topics.length;
+    const pct = total > 0 ? Math.round((done/total)*100) : 0;
+    totalDone += done; totalAll += total;
+
+    const card = document.createElement('div');
+    card.className = 'subject-card ' + colorClass;
+
+    const initial = subject.name.trim().charAt(0).toUpperCase() || '?';
+
+    card.innerHTML = `
+      <div class="subject-top">
+        <div class="subject-name">
+          <span class="subject-icon">${initial}</span>
+          <span class="title-text">${escapeHtml(subject.name)}</span>
+        </div>
+        <div class="subject-actions">
+          <span class="subject-pct">${pct}%</span>
+          <button class="del-subject-btn" title="Delete subject">✕</button>
+        </div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+      <div class="topic-list"></div>
+      ${total === 0 ? '<div class="empty-state" style="padding:0 0 0.6rem">No chapters added yet.</div>' : ''}
+      <div class="input-row small" style="margin-bottom:0">
+        <input type="text" placeholder="Add a chapter / topic...">
+        <button>Add</button>
+      </div>
+    `;
+
+    // Topic list
+    const topicList = card.querySelector('.topic-list');
+    subject.topics.forEach((topic, tIdx) => {
+      const item = document.createElement('div');
+      item.className = 'topic-item' + (topic.done ? ' done' : '');
+      item.innerHTML = `<input type="checkbox" ${topic.done ? 'checked' : ''}><span class="t-text">${escapeHtml(topic.name)}</span><button class="del-btn" title="Remove">✕</button>`;
+      item.querySelector('input').addEventListener('change', e => {
+        subjects[sIdx].topics[tIdx].done = e.target.checked;
+        save('sp_subjects_v2', subjects);
+        renderSubjects();
+      });
+      item.querySelector('.t-text').addEventListener('click', () => {
+        const cb = item.querySelector('input');
+        cb.checked = !cb.checked;
+        cb.dispatchEvent(new Event('change'));
+      });
+      item.querySelector('.del-btn').addEventListener('click', () => {
+        subjects[sIdx].topics.splice(tIdx, 1);
+        save('sp_subjects_v2', subjects);
+        renderSubjects();
+      });
+      topicList.appendChild(item);
+    });
+
+    // Delete subject
+    card.querySelector('.del-subject-btn').addEventListener('click', () => {
+      if (!confirm(`Delete "${subject.name}" and all its chapters?`)) return;
+      subjects.splice(sIdx, 1);
+      save('sp_subjects_v2', subjects);
+      renderSubjects();
+    });
+
+    // Add topic
+    const topicInput = card.querySelector('.input-row input');
+    const topicAddBtn = card.querySelector('.input-row button');
+    function addTopic() {
+      const val = topicInput.value.trim();
+      if (!val) return;
+      subjects[sIdx].topics.push({ id: uid(), name: val, done: false });
+      save('sp_subjects_v2', subjects);
+      renderSubjects();
+    }
+    topicAddBtn.addEventListener('click', addTopic);
+    topicInput.addEventListener('keypress', e => { if (e.key === 'Enter') addTopic(); });
+
+    list.appendChild(card);
+  });
+
+  document.getElementById('statProgress').textContent = totalAll > 0 ? Math.round((totalDone/totalAll)*100) + '%' : '—';
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* ============================================
+   TASKS — persistent, fully user-controlled
+   ============================================ */
+function renderTasks() {
+  const list = document.getElementById('todoList');
+  list.innerHTML = '';
+  if (tasks.length === 0) {
+    list.innerHTML = '<div class="empty-state">No tasks yet — add something you want to get done.</div>';
+  }
+  let done = 0;
+  tasks.forEach((task, i) => {
+    if (task.done) done++;
+    const item = document.createElement('div');
+    item.className = 'todo-item' + (task.done ? ' done' : '');
+    item.innerHTML = `<input type="checkbox" ${task.done ? 'checked' : ''}><span>${escapeHtml(task.text)}</span><button class="del-btn">✕</button>`;
+    item.querySelector('input').addEventListener('change', e => {
+      tasks[i].done = e.target.checked;
+      save('sp_tasks_v2', tasks);
+      renderTasks();
+    });
+    item.querySelector('span').addEventListener('click', () => {
+      const cb = item.querySelector('input');
+      cb.checked = !cb.checked;
+      cb.dispatchEvent(new Event('change'));
+    });
+    item.querySelector('.del-btn').addEventListener('click', () => {
+      tasks.splice(i, 1);
+      save('sp_tasks_v2', tasks);
+      renderTasks();
+    });
+    list.appendChild(item);
+  });
+  document.getElementById('statTasks').textContent = `${done}/${tasks.length}`;
+}
+
+document.getElementById('todoAddBtn').addEventListener('click', addTask);
+document.getElementById('todoInput').addEventListener('keypress', e => { if (e.key === 'Enter') addTask(); });
+function addTask() {
+  const input = document.getElementById('todoInput');
+  const text = input.value.trim();
+  if (!text) return;
+  tasks.push({ id: uid(), text, done: false });
+  save('sp_tasks_v2', tasks);
+  input.value = '';
+  renderTasks();
+}
+
+/* ============================================
+   WEEKLY CHART
+   ============================================ */
+function renderChart() {
+  const bars = document.getElementById('chartBars');
+  bars.innerHTML = '';
+  const days = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    const key = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+    days.push({ key, label: d.toLocaleDateString('en-GB', { weekday: 'short' }), isToday: i === 0 });
+  }
+  const maxMin = Math.max(60, ...days.map(d => sessions[d.key] || 0));
+  days.forEach(d => {
+    const mins = sessions[d.key] || 0;
+    const heightPct = Math.max((mins / maxMin) * 100, 2);
+    const col = document.createElement('div');
+    col.className = 'chart-col';
+    col.innerHTML = `
+      <div class="chart-mins">${mins > 0 ? mins+'m' : ''}</div>
+      <div class="chart-bar-track"><div class="chart-bar ${d.isToday ? 'today' : ''}" style="height:${heightPct}%"></div></div>
+      <div class="chart-label">${d.label}</div>
+    `;
+    bars.appendChild(col);
+  });
+}
+
+/* ============================================
+   STREAK
+   ============================================ */
+function calcStreak() {
+  let streak = 0;
+  let d = new Date();
+  while (true) {
+    const key = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+    if ((sessions[key] || 0) > 0) {
+      streak++;
+      d.setDate(d.getDate() - 1);
+    } else break;
+  }
+  document.getElementById('streakNum').textContent = streak;
+}
+
+/* ============================================
+   STATS
+   ============================================ */
+function renderStats() {
+  const tKey = todayKey();
+  document.getElementById('statToday').textContent = (sessions[tKey] || 0) + 'm';
+  document.getElementById('statSessions').textContent = sessionCounts[tKey] || 0;
+  document.getElementById('sessionCountLabel').textContent = sessionCounts[tKey] || 0;
+  calcStreak();
+  renderChart();
+}
+
+/* ============================================
+   POMODORO TIMER — adjustable duration
+   ============================================ */
+let sessionMinutes = load('sp_timer_duration', 25);
+let totalSeconds = sessionMinutes * 60;
+let remaining = totalSeconds;
+let timerInterval = null;
+let isRunning = false;
+const CIRC = 2 * Math.PI * 100; // ≈ 628.3
+
+// Set initial active tab based on saved duration
+document.querySelectorAll('#durationTabs .mode-tab').forEach(btn => {
+  if (parseInt(btn.dataset.mins) === sessionMinutes) btn.classList.add('active');
+  else btn.classList.remove('active');
+});
+
+function updateTimerDisplay() {
+  const m = Math.floor(remaining / 60).toString().padStart(2, '0');
+  const s = (remaining % 60).toString().padStart(2, '0');
+  document.getElementById('timerTime').textContent = `${m}:${s}`;
+  const progress = remaining / totalSeconds;
+  document.getElementById('timerProgress').style.strokeDashoffset = CIRC * (1 - progress);
+}
+
+document.querySelectorAll('#durationTabs .mode-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (isRunning) return;
+    document.querySelectorAll('#durationTabs .mode-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    sessionMinutes = parseInt(btn.dataset.mins);
+    save('sp_timer_duration', sessionMinutes);
+    totalSeconds = sessionMinutes * 60;
+    remaining = totalSeconds;
+    updateTimerDisplay();
+  });
+});
+
+document.getElementById('startBtn').addEventListener('click', () => {
+  if (isRunning) {
+    clearInterval(timerInterval);
+    isRunning = false;
+    document.getElementById('startBtn').textContent = 'Resume';
+    setDurationTabsDisabled(false);
+  } else {
+    isRunning = true;
+    document.getElementById('startBtn').textContent = 'Pause';
+    setDurationTabsDisabled(true);
+    timerInterval = setInterval(() => {
+      remaining--;
+      updateTimerDisplay();
+      if (remaining <= 0) {
+        clearInterval(timerInterval);
+        isRunning = false;
+        document.getElementById('startBtn').textContent = 'Start';
+        setDurationTabsDisabled(false);
+        onSessionComplete();
+      }
+    }, 1000);
+  }
+});
+
+document.getElementById('resetBtn').addEventListener('click', () => {
+  clearInterval(timerInterval);
+  isRunning = false;
+  remaining = totalSeconds;
+  document.getElementById('startBtn').textContent = 'Start';
+  setDurationTabsDisabled(false);
+  updateTimerDisplay();
+});
+
+function setDurationTabsDisabled(disabled) {
+  document.querySelectorAll('#durationTabs .mode-tab').forEach(b => b.disabled = disabled);
+}
+
+function onSessionComplete() {
+  const tKey = todayKey();
+  sessions[tKey] = (sessions[tKey] || 0) + sessionMinutes;
+  sessionCounts[tKey] = (sessionCounts[tKey] || 0) + 1;
+  save('sp_sessions', sessions);
+  save('sp_session_counts', sessionCounts);
+  renderStats();
+  remaining = totalSeconds;
+  updateTimerDisplay();
+  document.title = '✅ Session done! — Study Planner';
+  setTimeout(() => { document.title = 'Study Planner — Ali Raza'; }, 4000);
+}
+
+/* ============================================
+   RESET ALL
+   ============================================ */
+document.getElementById('resetAllBtn').addEventListener('click', () => {
+  if (!confirm('This will erase all subjects, tasks, and session history. Continue?')) return;
+  ['sp_subjects_v2','sp_tasks_v2','sp_sessions','sp_session_counts','sp_timer_duration'].forEach(k => localStorage.removeItem(k));
+  location.reload();
+});
+
+/* ============================================
+   INIT
+   ============================================ */
+renderSubjects();
+renderTasks();
+renderStats();
+updateTimerDisplay();
+</script>
+
+</body>
+</html>

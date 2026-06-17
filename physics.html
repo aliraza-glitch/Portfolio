@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AS Physics Formula Sheet — Ali Raza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="physics.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="back">← Portfolio</a>
+  <span class="nav-title">CIE AS Level Physics 9702 — Complete Formula Reference</span>
+  <button class="print-btn" onclick="window.print()">⬇ Print / PDF</button>
+</nav>
+
+<header>
+  <div class="header-inner">
+    <div class="eyebrow">// CIE 9702 · AS Level · All 11 Topics</div>
+    <h1>Physics Formula <span>Reference</span></h1>
+    <p>Every formula, definition and constant for AS Level Physics — nothing missing.</p>
+    <div class="toc">
+      <a href="#t1">01 Quantities & Units</a>
+      <a href="#t2">02 Kinematics</a>
+      <a href="#t3">03 Dynamics</a>
+      <a href="#t4">04 Forces, Density & Pressure</a>
+      <a href="#t5">05 Work, Energy & Power</a>
+      <a href="#t6">06 Deformation of Solids</a>
+      <a href="#t7">07 Waves</a>
+      <a href="#t8">08 Superposition</a>
+      <a href="#t9">09 Electricity</a>
+      <a href="#t10">10 DC Circuits</a>
+      <a href="#t11">11 Particle Physics</a>
+      <a href="#constants">Constants</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════════
+     TOPIC 1 — PHYSICAL QUANTITIES & UNITS
+     ═══════════════════════════════════════ -->
+<section class="topic" id="t1">
+  <div class="topic-header">
+    <span class="topic-num">01</span>
+    <h2>Physical Quantities &amp; Units</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Scalars vs Vectors</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">Scalar — magnitude only</div>
+        <div class="formula-desc">Examples</div>
+        <div class="variables">speed, distance, mass, temperature, energy, pressure, time, density</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Vector — magnitude + direction</div>
+        <div class="formula-desc">Examples</div>
+        <div class="variables">velocity, displacement, acceleration, force, momentum, weight, electric field</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Vector Addition &amp; Resolution</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">R = √(x² + y²)</div>
+        <div class="formula-desc">Resultant of two perpendicular vectors</div>
+        <div class="variables">x = horizontal component, y = vertical component</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">θ = tan⁻¹(y / x)</div>
+        <div class="formula-desc">Angle of resultant</div>
+        <div class="variables">θ measured from horizontal</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Fₓ = F cosθ</div>
+        <div class="formula-desc">Horizontal component</div>
+        <div class="variables">F = magnitude of vector, θ = angle from horizontal</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Fᵧ = F sinθ</div>
+        <div class="formula-desc">Vertical component</div>
+        <div class="variables">θ = angle from horizontal</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>SI Base Units</h3>
+    <div class="formula-grid">
+      <div class="formula-card"><div class="formula">kg</div><div class="formula-desc">Mass</div><div class="variables">kilogram</div></div>
+      <div class="formula-card"><div class="formula">m</div><div class="formula-desc">Length</div><div class="variables">metre</div></div>
+      <div class="formula-card"><div class="formula">s</div><div class="formula-desc">Time</div><div class="variables">second</div></div>
+      <div class="formula-card"><div class="formula">A</div><div class="formula-desc">Current</div><div class="variables">ampere</div></div>
+      <div class="formula-card"><div class="formula">K</div><div class="formula-desc">Temperature</div><div class="variables">kelvin</div></div>
+      <div class="formula-card"><div class="formula">mol</div><div class="formula-desc">Amount of substance</div><div class="variables">mole</div></div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Common Unit Prefixes</h3>
+    <div class="formula-grid">
+      <div class="formula-card"><div class="formula">T = 10¹²</div><div class="formula-desc">Tera</div></div>
+      <div class="formula-card"><div class="formula">G = 10⁹</div><div class="formula-desc">Giga</div></div>
+      <div class="formula-card"><div class="formula">M = 10⁶</div><div class="formula-desc">Mega</div></div>
+      <div class="formula-card"><div class="formula">k = 10³</div><div class="formula-desc">Kilo</div></div>
+      <div class="formula-card"><div class="formula">c = 10⁻²</div><div class="formula-desc">Centi</div></div>
+      <div class="formula-card"><div class="formula">m = 10⁻³</div><div class="formula-desc">Milli</div></div>
+      <div class="formula-card"><div class="formula">μ = 10⁻⁶</div><div class="formula-desc">Micro</div></div>
+      <div class="formula-card"><div class="formula">n = 10⁻⁹</div><div class="formula-desc">Nano</div></div>
+      <div class="formula-card"><div class="formula">p = 10⁻¹²</div><div class="formula-desc">Pico</div></div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Uncertainty &amp; Errors</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">absolute uncertainty = ½ × range</div>
+        <div class="formula-desc">From repeated readings</div>
+        <div class="variables">range = max value − min value</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">% uncertainty = (Δx / x) × 100</div>
+        <div class="formula-desc">Fractional / percentage uncertainty</div>
+        <div class="variables">Δx = absolute uncertainty, x = measured value</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Add absolute uncertainties for + and −</div>
+        <div class="formula-desc">Adding/subtracting quantities</div>
+        <div class="variables">e.g. (a ± Δa) + (b ± Δb) → uncertainty = Δa + Δb</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Add % uncertainties for × and ÷</div>
+        <div class="formula-desc">Multiplying/dividing quantities</div>
+        <div class="variables">e.g. x = ab → %Δx = %Δa + %Δb</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Multiply % uncertainty by power n</div>
+        <div class="formula-desc">For powers: x = aⁿ</div>
+        <div class="variables">%Δx = n × %Δa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════
+     TOPIC 2 — KINEMATICS
+     ═══════════════════ -->
+<section class="topic" id="t2">
+  <div class="topic-header">
+    <span class="topic-num">02</span>
+    <h2>Kinematics</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Definitions</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">v = Δx / Δt</div>
+        <div class="formula-desc">Average velocity</div>
+        <div class="variables">v = velocity (ms⁻¹), Δx = displacement (m), Δt = time interval (s)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">a = Δv / Δt</div>
+        <div class="formula-desc">Acceleration</div>
+        <div class="variables">a = acceleration (ms⁻²), Δv = change in velocity (ms⁻¹)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">speed = distance / time</div>
+        <div class="formula-desc">Average speed (scalar)</div>
+        <div class="variables">speed has no direction; velocity does</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>SUVAT — Equations of Motion (uniform acceleration only)</h3>
+    <div class="formula-grid">
+      <div class="formula-card highlight">
+        <div class="formula">v = u + at</div>
+        <div class="formula-desc">No displacement</div>
+        <div class="variables">u = initial velocity, v = final velocity, a = acceleration, t = time</div>
+      </div>
+      <div class="formula-card highlight">
+        <div class="formula">s = ½(u + v)t</div>
+        <div class="formula-desc">No acceleration</div>
+        <div class="variables">s = displacement (m)</div>
+      </div>
+      <div class="formula-card highlight">
+        <div class="formula">s = ut + ½at²</div>
+        <div class="formula-desc">No final velocity</div>
+        <div class="variables">Use when v is unknown</div>
+      </div>
+      <div class="formula-card highlight">
+        <div class="formula">v² = u² + 2as</div>
+        <div class="formula-desc">No time</div>
+        <div class="variables">Use when t is unknown</div>
+      </div>
+      <div class="formula-card highlight">
+        <div class="formula">s = vt − ½at²</div>
+        <div class="formula-desc">No initial velocity</div>
+        <div class="variables">Less commonly tested but valid</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Projectile Motion</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">Horizontal: x = u cosθ × t</div>
+        <div class="formula-desc">Horizontal displacement</div>
+        <div class="variables">No horizontal acceleration (ignoring air resistance)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Vertical: y = u sinθ × t − ½gt²</div>
+        <div class="formula-desc">Vertical displacement</div>
+        <div class="variables">g = 9.81 ms⁻² downward</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">vₓ = u cosθ (constant)</div>
+        <div class="formula-desc">Horizontal velocity</div>
+        <div class="variables">Unchanged throughout flight</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">vᵧ = u sinθ − gt</div>
+        <div class="formula-desc">Vertical velocity</div>
+        <div class="variables">Decreases going up, increases coming down</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">At max height: vᵧ = 0</div>
+        <div class="formula-desc">Peak of trajectory</div>
+        <div class="variables">Use v² = u² + 2as with v = 0 to find max height</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Graphs of Motion</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">gradient of displacement–time = velocity</div>
+        <div class="formula-desc">s–t graph</div>
+        <div class="variables">Curved line = changing velocity (acceleration); straight = constant velocity</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">gradient of velocity–time = acceleration</div>
+        <div class="formula-desc">v–t graph</div>
+        <div class="variables">Area under v–t graph = displacement</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">gradient of acceleration–time = rate of change of acceleration</div>
+        <div class="formula-desc">a–t graph</div>
+        <div class="variables">Area under a–t graph = change in velocity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════
+     TOPIC 3 — DYNAMICS
+     ══════════════════ -->
+<section class="topic" id="t3">
+  <div class="topic-header">
+    <span class="topic-num">03</span>
+    <h2>Dynamics</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Newton's Laws</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">Newton's 1st Law</div>
+        <div class="formula-desc">Inertia</div>
+        <div class="variables">An object remains at rest or in uniform motion unless acted upon by a resultant force</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">F = ma</div>
+        <div class="formula-desc">Newton's 2nd Law</div>
+        <div class="variables">F = resultant force (N), m = mass (kg), a = acceleration (ms⁻²)</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Newton's 3rd Law</div>
+        <div class="formula-desc">Action-reaction pairs</div>
+        <div class="variables">For every action there is an equal and opposite reaction. Forces act on DIFFERENT objects.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Momentum &amp; Impulse</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">p = mv</div>
+        <div class="formula-desc">Momentum</div>
+        <div class="variables">p = momentum (kg ms⁻¹), m = mass (kg), v = velocity (ms⁻¹)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">F = Δp / Δt</div>
+        <div class="formula-desc">Force = rate of change of momentum</div>
+        <div class="variables">Links Newton's 2nd law to momentum</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Impulse = FΔt = Δp</div>
+        <div class="formula-desc">Impulse</div>
+        <div class="variables">Units: N s or kg ms⁻¹ (same thing); area under F–t graph</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Impulse = mv − mu</div>
+        <div class="formula-desc">Impulse from velocities</div>
+        <div class="variables">Change in momentum</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Conservation of Momentum</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</div>
+        <div class="formula-desc">Collision — conservation of momentum</div>
+        <div class="variables">Total momentum before = total momentum after (closed system, no external forces)</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Elastic: KE conserved. Inelastic: KE not conserved.</div>
+        <div class="formula-desc">Types of collision</div>
+        <div class="variables">In perfectly inelastic collisions, objects stick together: m₁u₁ + m₂u₂ = (m₁+m₂)v</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TOPIC 4 — FORCES, DENSITY & PRESSURE
+     ═══════════════════════════════════════ -->
+<section class="topic" id="t4">
+  <div class="topic-header">
+    <span class="topic-num">04</span>
+    <h2>Forces, Density &amp; Pressure</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Forces</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">W = mg</div>
+        <div class="formula-desc">Weight</div>
+        <div class="variables">W = weight (N), m = mass (kg), g = 9.81 ms⁻²</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">F_friction = μN</div>
+        <div class="formula-desc">Friction</div>
+        <div class="variables">μ = coefficient of friction, N = normal reaction force (N)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Centre of gravity</div>
+        <div class="formula-desc">Definition</div>
+        <div class="variables">The single point where the entire weight of an object appears to act</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Moments &amp; Torque</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">Moment = F × d</div>
+        <div class="formula-desc">Turning moment (torque)</div>
+        <div class="variables">F = force (N), d = perpendicular distance from pivot (m). Unit: Nm</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Σ clockwise moments = Σ anticlockwise moments</div>
+        <div class="formula-desc">Principle of moments (equilibrium)</div>
+        <div class="variables">Applies when object is in rotational equilibrium</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Couple = F × d (two equal, opposite, parallel forces)</div>
+        <div class="formula-desc">Couple / torque of a couple</div>
+        <div class="variables">d = perpendicular distance between the two forces. Produces rotation, no translation.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Equilibrium Conditions</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">ΣF = 0 (resultant force = 0)</div>
+        <div class="formula-desc">Translational equilibrium</div>
+        <div class="variables">Sum of all forces in any direction = 0</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Σmoments = 0 (resultant moment = 0)</div>
+        <div class="formula-desc">Rotational equilibrium</div>
+        <div class="variables">Both conditions needed for full equilibrium</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Density &amp; Pressure</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">ρ = m / V</div>
+        <div class="formula-desc">Density</div>
+        <div class="variables">ρ = density (kg m⁻³), m = mass (kg), V = volume (m³)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">p = F / A</div>
+        <div class="formula-desc">Pressure</div>
+        <div class="variables">p = pressure (Pa = N m⁻²), F = force (N), A = area (m²)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">p = ρgh</div>
+        <div class="formula-desc">Pressure in a fluid</div>
+        <div class="variables">h = depth below surface (m), g = 9.81 ms⁻², ρ = fluid density</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Upthrust = ρVg</div>
+        <div class="formula-desc">Archimedes' principle</div>
+        <div class="variables">V = volume of fluid displaced (m³); upthrust = weight of fluid displaced</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     TOPIC 5 — WORK, ENERGY & POWER
+     ══════════════════════════════ -->
+<section class="topic" id="t5">
+  <div class="topic-header">
+    <span class="topic-num">05</span>
+    <h2>Work, Energy &amp; Power</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Work Done</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">W = Fs cosθ</div>
+        <div class="formula-desc">Work done</div>
+        <div class="variables">W = work (J), F = force (N), s = displacement (m), θ = angle between F and s</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">W = area under F–s graph</div>
+        <div class="formula-desc">Work from graph</div>
+        <div class="variables">Useful for variable forces</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Energy</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">KE = ½mv²</div>
+        <div class="formula-desc">Kinetic energy</div>
+        <div class="variables">KE in joules (J), m = mass (kg), v = speed (ms⁻¹)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">ΔKE = ½mv² − ½mu²</div>
+        <div class="formula-desc">Change in kinetic energy</div>
+        <div class="variables">Equals work done by resultant force</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">GPE = mgh</div>
+        <div class="formula-desc">Gravitational potential energy</div>
+        <div class="variables">h = height gained (m), g = 9.81 ms⁻²</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">ΔGPE = mgΔh</div>
+        <div class="formula-desc">Change in GPE</div>
+        <div class="variables">Δh = change in height</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">KE gained = GPE lost (no friction)</div>
+        <div class="formula-desc">Conservation of mechanical energy</div>
+        <div class="variables">Total mechanical energy conserved when no resistive forces act</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Power &amp; Efficiency</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">P = W / t</div>
+        <div class="formula-desc">Power</div>
+        <div class="variables">P = power (W), W = work done (J), t = time (s)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">P = Fv</div>
+        <div class="formula-desc">Power of moving object</div>
+        <div class="variables">v = velocity (ms⁻¹); useful for constant-speed problems</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">efficiency = P_useful / P_input</div>
+        <div class="formula-desc">Efficiency (as decimal)</div>
+        <div class="variables">Multiply × 100 for percentage</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">efficiency = W_useful / W_input</div>
+        <div class="formula-desc">Efficiency (from work/energy)</div>
+        <div class="variables">Always ≤ 1 (or ≤ 100%)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     TOPIC 6 — DEFORMATION OF SOLIDS
+     ═══════════════════════════════ -->
+<section class="topic" id="t6">
+  <div class="topic-header">
+    <span class="topic-num">06</span>
+    <h2>Deformation of Solids</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Hooke's Law &amp; Springs</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">F = kx</div>
+        <div class="formula-desc">Hooke's Law</div>
+        <div class="variables">F = force (N), k = spring constant (N m⁻¹), x = extension (m). Valid up to limit of proportionality.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">E_spring = ½Fx = ½kx²</div>
+        <div class="formula-desc">Elastic potential energy stored</div>
+        <div class="variables">Area under F–x graph. Valid only in elastic region.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Springs in series: 1/k_eff = 1/k₁ + 1/k₂</div>
+        <div class="formula-desc">Combined spring constant (series)</div>
+        <div class="variables">Extension is shared; same force in each spring</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Springs in parallel: k_eff = k₁ + k₂</div>
+        <div class="formula-desc">Combined spring constant (parallel)</div>
+        <div class="variables">Same extension; force is shared</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Stress, Strain &amp; Young's Modulus</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">stress σ = F / A</div>
+        <div class="formula-desc">Tensile stress</div>
+        <div class="variables">σ = stress (Pa), F = force (N), A = cross-sectional area (m²)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">strain ε = x / L₀</div>
+        <div class="formula-desc">Tensile strain</div>
+        <div class="variables">ε = strain (no units), x = extension (m), L₀ = original length (m)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">E = σ / ε = (FL₀) / (Ax)</div>
+        <div class="formula-desc">Young's modulus</div>
+        <div class="variables">E in pascals (Pa). Gradient of linear part of stress–strain graph.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Energy/volume = ½σε</div>
+        <div class="formula-desc">Elastic strain energy density</div>
+        <div class="variables">Area under stress–strain graph (elastic region)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Material Behaviour (Key Terms)</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">Elastic — returns to original shape on removing force</div>
+        <div class="formula-desc">Elastic deformation</div>
+        <div class="variables">Loading and unloading curves coincide. No permanent deformation.</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Plastic — permanent deformation after force removed</div>
+        <div class="formula-desc">Plastic deformation</div>
+        <div class="variables">Occurs beyond elastic limit. Loading and unloading curves differ.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Limit of proportionality</div>
+        <div class="formula-desc">F ∝ x no longer holds beyond this point</div>
+        <div class="variables">Hooke's law breaks down</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Elastic limit</div>
+        <div class="formula-desc">Beyond here deformation is permanent</div>
+        <div class="variables">Just above limit of proportionality</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Yield point</div>
+        <div class="formula-desc">Large extension with little increase in force</div>
+        <div class="variables">Occurs in ductile materials (e.g. steel)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">UTS — ultimate tensile strength</div>
+        <div class="formula-desc">Maximum stress material can withstand</div>
+        <div class="variables">Peak of stress–strain curve</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════
+     TOPIC 7 — WAVES
+     ══════════════ -->
+<section class="topic" id="t7">
+  <div class="topic-header">
+    <span class="topic-num">07</span>
+    <h2>Waves</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Wave Properties</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">v = fλ</div>
+        <div class="formula-desc">Wave speed</div>
+        <div class="variables">v = speed (ms⁻¹), f = frequency (Hz), λ = wavelength (m)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">T = 1 / f</div>
+        <div class="formula-desc">Time period</div>
+        <div class="variables">T = period (s), f = frequency (Hz)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">f = 1 / T</div>
+        <div class="formula-desc">Frequency</div>
+        <div class="variables">Number of complete oscillations per second</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">I = P / A</div>
+        <div class="formula-desc">Intensity</div>
+        <div class="variables">I = intensity (W m⁻²), P = power (W), A = area (m²)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">I ∝ A² (amplitude squared)</div>
+        <div class="formula-desc">Intensity–amplitude relationship</div>
+        <div class="variables">Double amplitude → quadruple intensity</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">I ∝ 1/r²</div>
+        <div class="formula-desc">Inverse square law (point source)</div>
+        <div class="variables">r = distance from source; intensity decreases with square of distance</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Transverse vs Longitudinal</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">Transverse — oscillation perpendicular to wave travel</div>
+        <div class="formula-desc">Examples</div>
+        <div class="variables">Light, water waves, all EM waves. Can be polarised.</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Longitudinal — oscillation parallel to wave travel</div>
+        <div class="formula-desc">Examples</div>
+        <div class="variables">Sound waves, ultrasound. Cannot be polarised. Has compressions and rarefactions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Electromagnetic Spectrum</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">c = fλ = 3.00 × 10⁸ ms⁻¹ (in vacuum)</div>
+        <div class="formula-desc">All EM waves travel at speed of light in vacuum</div>
+        <div class="variables">Radio → Microwave → IR → Visible → UV → X-ray → Gamma (increasing f, decreasing λ)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Refraction</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">n₁ sinθ₁ = n₂ sinθ₂</div>
+        <div class="formula-desc">Snell's Law</div>
+        <div class="variables">n = refractive index, θ = angle from normal</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">n = sin i / sin r</div>
+        <div class="formula-desc">Snell's Law (air to medium)</div>
+        <div class="variables">i = angle of incidence, r = angle of refraction (both from normal)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">n = c / v</div>
+        <div class="formula-desc">Refractive index</div>
+        <div class="variables">c = speed in vacuum/air, v = speed in medium. n ≥ 1 always.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">sin C = 1 / n</div>
+        <div class="formula-desc">Critical angle (going from medium to air)</div>
+        <div class="variables">C = critical angle. TIR occurs when θ > C.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">n = λ_air / λ_medium</div>
+        <div class="formula-desc">Refractive index from wavelengths</div>
+        <div class="variables">Wavelength changes but frequency stays constant when entering a medium</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Doppler Effect</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">f_obs = f_s × v / (v ± v_s)</div>
+        <div class="formula-desc">Doppler formula (moving source)</div>
+        <div class="variables">Use − when source moves toward observer (higher f), + when moving away. v = wave speed, v_s = source speed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     TOPIC 8 — SUPERPOSITION
+     ═══════════════════════ -->
+<section class="topic" id="t8">
+  <div class="topic-header">
+    <span class="topic-num">08</span>
+    <h2>Superposition</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Principle of Superposition</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">Resultant displacement = sum of individual displacements</div>
+        <div class="formula-desc">Superposition principle</div>
+        <div class="variables">Applies when two or more waves overlap at a point</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Constructive: path diff = nλ → amplitude doubles</div>
+        <div class="formula-desc">Constructive interference</div>
+        <div class="variables">n = 0, 1, 2, ... Waves arrive in phase.</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Destructive: path diff = (n + ½)λ → amplitude = 0</div>
+        <div class="formula-desc">Destructive interference</div>
+        <div class="variables">Waves arrive in antiphase (180° out of phase)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Young's Double Slit</h3>
+    <div class="formula-grid">
+      <div class="formula-card highlight">
+        <div class="formula">λ = ax / D</div>
+        <div class="formula-desc">Young's double slit formula</div>
+        <div class="variables">a = slit separation (m), x = fringe spacing (m), D = slit-to-screen distance (m)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">x = λD / a</div>
+        <div class="formula-desc">Fringe spacing</div>
+        <div class="variables">Larger D or smaller a → wider fringes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Diffraction Grating</h3>
+    <div class="formula-grid">
+      <div class="formula-card highlight">
+        <div class="formula">d sinθ = nλ</div>
+        <div class="formula-desc">Diffraction grating equation</div>
+        <div class="variables">d = grating spacing (m), θ = angle of diffraction, n = order (0,1,2...), λ = wavelength</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">d = 1 / N</div>
+        <div class="formula-desc">Grating spacing from lines per metre</div>
+        <div class="variables">N = number of lines per metre. If given lines/mm, divide by 10⁶ to get d in metres.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">max order n_max = d / λ (round down)</div>
+        <div class="formula-desc">Maximum order visible</div>
+        <div class="variables">sinθ cannot exceed 1, so n ≤ d/λ</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Stationary Waves</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">λ = 2L / n</div>
+        <div class="formula-desc">Wavelength for nth harmonic (string/pipe open both ends)</div>
+        <div class="variables">L = length, n = harmonic number (1, 2, 3...)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">f_n = n × v / (2L)</div>
+        <div class="formula-desc">Frequency of nth harmonic</div>
+        <div class="variables">v = wave speed, L = length</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">f₁ = v / (2L) — fundamental (1st harmonic)</div>
+        <div class="formula-desc">Fundamental frequency</div>
+        <div class="variables">Lowest possible frequency for resonance</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Node — zero displacement always. Antinode — maximum displacement.</div>
+        <div class="formula-desc">Key points on stationary wave</div>
+        <div class="variables">Adjacent node-antinode distance = λ/4. Adjacent node-node distance = λ/2.</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Points between two nodes oscillate IN PHASE. Points on opposite sides of a node are in ANTIPHASE.</div>
+        <div class="formula-desc">Phase in stationary waves</div>
+        <div class="variables">Unlike progressive waves, stationary waves do not transfer energy along the medium.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     TOPIC 9 — ELECTRICITY
+     ══════════════════════ -->
+<section class="topic" id="t9">
+  <div class="topic-header">
+    <span class="topic-num">09</span>
+    <h2>Electricity</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Charge &amp; Current</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">I = ΔQ / Δt</div>
+        <div class="formula-desc">Current</div>
+        <div class="variables">I = current (A), Q = charge (C), t = time (s)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Q = It</div>
+        <div class="formula-desc">Charge from current</div>
+        <div class="variables">Total charge transferred</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">I = nAvq</div>
+        <div class="formula-desc">Drift velocity model</div>
+        <div class="variables">n = number density (m⁻³), A = cross-section (m²), v = drift velocity (ms⁻¹), q = charge per carrier (C)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">e = 1.60 × 10⁻¹⁹ C</div>
+        <div class="formula-desc">Elementary charge</div>
+        <div class="variables">Charge of one proton / magnitude of charge of one electron</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Potential Difference &amp; EMF</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">V = W / Q</div>
+        <div class="formula-desc">Potential difference</div>
+        <div class="variables">V = p.d. (V), W = energy transferred (J), Q = charge (C)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">ε = W / Q</div>
+        <div class="formula-desc">EMF (electromotive force)</div>
+        <div class="variables">Energy supplied per unit charge by the source. Units: volts (V).</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">EMF — work done per unit charge by source. PD — work done per unit charge by circuit component.</div>
+        <div class="formula-desc">EMF vs PD distinction</div>
+        <div class="variables">EMF is a source; PD is a drop across a load</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Resistance &amp; Ohm's Law</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">R = V / I</div>
+        <div class="formula-desc">Resistance</div>
+        <div class="variables">R = resistance (Ω), V = voltage (V), I = current (A)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">V = IR</div>
+        <div class="formula-desc">Ohm's Law</div>
+        <div class="variables">V ∝ I at constant temperature for an ohmic conductor</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">R = ρL / A</div>
+        <div class="formula-desc">Resistivity</div>
+        <div class="variables">ρ = resistivity (Ω m), L = length (m), A = cross-sectional area (m²)</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Ohmic conductor: I ∝ V (constant R). Non-ohmic: R varies (e.g. filament lamp, diode, thermistor, LDR).</div>
+        <div class="formula-desc">Ohmic vs non-ohmic</div>
+        <div class="variables">Filament lamp: resistance increases with temperature. Thermistor (NTC): resistance decreases with temperature. LDR: resistance decreases with light intensity.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Power &amp; Energy in Circuits</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">P = IV</div>
+        <div class="formula-desc">Electrical power</div>
+        <div class="variables">P = power (W)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">P = I²R</div>
+        <div class="formula-desc">Power (in terms of R)</div>
+        <div class="variables">Use when voltage unknown</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">P = V² / R</div>
+        <div class="formula-desc">Power (in terms of V)</div>
+        <div class="variables">Use when current unknown</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">E = Pt = VIt = I²Rt</div>
+        <div class="formula-desc">Energy dissipated</div>
+        <div class="variables">E = energy (J), t = time (s)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">E = QV</div>
+        <div class="formula-desc">Energy transferred by charge</div>
+        <div class="variables">Q = charge (C), V = p.d. (V)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════
+     TOPIC 10 — DC CIRCUITS
+     ═════════════════════ -->
+<section class="topic" id="t10">
+  <div class="topic-header">
+    <span class="topic-num">10</span>
+    <h2>DC Circuits</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Kirchhoff's Laws</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">KCL: ΣI_in = ΣI_out at a junction</div>
+        <div class="formula-desc">Kirchhoff's Current Law (1st Law)</div>
+        <div class="variables">Conservation of charge — charge does not accumulate at a junction</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">KVL: Σε = ΣIR around a loop</div>
+        <div class="formula-desc">Kirchhoff's Voltage Law (2nd Law)</div>
+        <div class="variables">Conservation of energy — sum of EMFs = sum of p.d. drops around any closed loop</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Series &amp; Parallel Circuits</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">R_total = R₁ + R₂ + R₃ + ...</div>
+        <div class="formula-desc">Resistors in series</div>
+        <div class="variables">Same current through each; voltages add up</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">1/R_total = 1/R₁ + 1/R₂ + ...</div>
+        <div class="formula-desc">Resistors in parallel</div>
+        <div class="variables">Same voltage across each; currents add up. R_total always less than smallest R.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Two in parallel: R = R₁R₂ / (R₁+R₂)</div>
+        <div class="formula-desc">Quick formula for two parallel resistors</div>
+        <div class="variables">Product over sum</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">V_series ∝ R (voltage divides proportionally to R)</div>
+        <div class="formula-desc">Voltage in series</div>
+        <div class="variables">V₁/V₂ = R₁/R₂</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Internal Resistance &amp; EMF</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">ε = V + Ir</div>
+        <div class="formula-desc">EMF with internal resistance</div>
+        <div class="variables">ε = EMF (V), V = terminal p.d. (V), I = current (A), r = internal resistance (Ω)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">V = ε − Ir</div>
+        <div class="formula-desc">Terminal potential difference</div>
+        <div class="variables">V decreases as I increases (when r > 0)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">ε = I(R + r)</div>
+        <div class="formula-desc">Total circuit equation</div>
+        <div class="variables">R = external resistance, r = internal resistance</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">gradient of V−I graph = −r, y-intercept = ε</div>
+        <div class="formula-desc">Graphical method for ε and r</div>
+        <div class="variables">Plot terminal p.d. V against current I</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Potential Divider</h3>
+    <div class="formula-grid">
+      <div class="formula-card highlight">
+        <div class="formula">V_out = R₂ / (R₁ + R₂) × V_in</div>
+        <div class="formula-desc">Potential divider output voltage</div>
+        <div class="variables">V_out taken across R₂. V_out ∝ R₂.</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Thermistor in potential divider: as T↑, R_thermistor↓, V_thermistor↓</div>
+        <div class="formula-desc">Temperature sensor application</div>
+        <div class="variables">Swap positions to get inverse relationship. Also applies to LDR with light.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     TOPIC 11 — PARTICLE PHYSICS
+     ═══════════════════════════ -->
+<section class="topic" id="t11">
+  <div class="topic-header">
+    <span class="topic-num">11</span>
+    <h2>Particle Physics</h2>
+  </div>
+
+  <div class="subtopic">
+    <h3>Atomic Structure</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">A = Z + N</div>
+        <div class="formula-desc">Mass number</div>
+        <div class="variables">A = mass number, Z = proton number (atomic number), N = neutron number</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Isotopes — same Z, different N (different number of neutrons)</div>
+        <div class="formula-desc">Isotopes definition</div>
+        <div class="variables">Same chemical properties, different masses</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Fundamental Particles</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">Proton: charge +e, mass ≈ 1u</div>
+        <div class="formula-desc">Proton</div>
+        <div class="variables">e = 1.60 × 10⁻¹⁹ C, u = 1.66 × 10⁻²⁷ kg</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Neutron: charge 0, mass ≈ 1u</div>
+        <div class="formula-desc">Neutron</div>
+        <div class="variables">Slightly heavier than proton</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">Electron: charge −e, mass ≈ 1/1836 u</div>
+        <div class="formula-desc">Electron</div>
+        <div class="variables">m_e = 9.11 × 10⁻³¹ kg</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Radioactive Decay</h3>
+    <div class="formula-grid">
+      <div class="formula-card wide">
+        <div class="formula">α decay: A → (A−4), Z → (Z−2), emits ⁴₂He</div>
+        <div class="formula-desc">Alpha decay</div>
+        <div class="variables">Stops in a few cm of air. Blocked by paper. High ionising power.</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">β⁻ decay: neutron → proton + electron + antineutrino. Z → (Z+1), A unchanged.</div>
+        <div class="formula-desc">Beta-minus decay</div>
+        <div class="variables">Blocked by a few mm aluminium. Moderate ionising power.</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">β⁺ decay: proton → neutron + positron + neutrino. Z → (Z−1), A unchanged.</div>
+        <div class="formula-desc">Beta-plus decay</div>
+        <div class="variables">Positron is antiparticle of electron</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">γ decay: no change in A or Z. Nucleus releases energy as gamma photon.</div>
+        <div class="formula-desc">Gamma decay</div>
+        <div class="variables">Blocked by thick lead or concrete. Lowest ionising power. Highly penetrating.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Radioactive Decay Equations</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">A = λN</div>
+        <div class="formula-desc">Activity</div>
+        <div class="variables">A = activity (Bq), λ = decay constant (s⁻¹), N = number of undecayed nuclei</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">N = N₀ e^(−λt)</div>
+        <div class="formula-desc">Exponential decay of nuclei</div>
+        <div class="variables">N₀ = initial number of nuclei</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">A = A₀ e^(−λt)</div>
+        <div class="formula-desc">Decay of activity</div>
+        <div class="variables">A₀ = initial activity</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">t½ = ln 2 / λ ≈ 0.693 / λ</div>
+        <div class="formula-desc">Half-life</div>
+        <div class="variables">Time for N (or A) to halve</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Photons &amp; Quantum Physics</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">E = hf</div>
+        <div class="formula-desc">Photon energy</div>
+        <div class="variables">E = energy (J), h = 6.63 × 10⁻³⁴ Js, f = frequency (Hz)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">E = hc / λ</div>
+        <div class="formula-desc">Photon energy from wavelength</div>
+        <div class="variables">c = 3.00 × 10⁸ ms⁻¹, λ = wavelength (m)</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">E (eV) = E (J) / 1.60 × 10⁻¹⁹</div>
+        <div class="formula-desc">Converting joules to electronvolts</div>
+        <div class="variables">1 eV = 1.60 × 10⁻¹⁹ J</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">hf = φ + ½mv²_max</div>
+        <div class="formula-desc">Photoelectric effect equation</div>
+        <div class="variables">φ = work function (J), ½mv²_max = max KE of emitted electron</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">f₀ = φ / h</div>
+        <div class="formula-desc">Threshold frequency</div>
+        <div class="variables">Minimum frequency needed to eject an electron. Below f₀, no emission regardless of intensity.</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">eV_s = ½mv²_max</div>
+        <div class="formula-desc">Stopping potential</div>
+        <div class="variables">V_s = stopping potential (V); voltage needed to stop the fastest electrons</div>
+      </div>
+      <div class="formula-card">
+        <div class="formula">λ = h / mv = h / p</div>
+        <div class="formula-desc">de Broglie wavelength</div>
+        <div class="variables">Wave-particle duality. p = momentum (kg ms⁻¹)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtopic">
+    <h3>Energy Levels &amp; Spectra</h3>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="formula">ΔE = hf = hc / λ</div>
+        <div class="formula-desc">Photon emitted/absorbed in transition</div>
+        <div class="variables">ΔE = E_higher − E_lower. Emission: photon released. Absorption: photon absorbed.</div>
+      </div>
+      <div class="formula-card wide">
+        <div class="formula">Line emission spectrum: discrete bright lines. Line absorption: dark lines on continuous background.</div>
+        <div class="formula-desc">Spectra types</div>
+        <div class="variables">Each element has unique spectrum — used for identification</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     CONSTANTS REFERENCE
+     ═══════════════════════ -->
+<section class="topic" id="constants">
+  <div class="topic-header">
+    <span class="topic-num">★</span>
+    <h2>Data &amp; Constants (CIE 9702)</h2>
+  </div>
+  <div class="subtopic">
+    <h3>Physical Constants</h3>
+    <div class="formula-grid">
+      <div class="formula-card"><div class="formula">c = 3.00 × 10⁸ ms⁻¹</div><div class="formula-desc">Speed of light in vacuum</div></div>
+      <div class="formula-card"><div class="formula">g = 9.81 ms⁻²</div><div class="formula-desc">Gravitational field strength (Earth surface)</div></div>
+      <div class="formula-card"><div class="formula">h = 6.63 × 10⁻³⁴ Js</div><div class="formula-desc">Planck constant</div></div>
+      <div class="formula-card"><div class="formula">e = 1.60 × 10⁻¹⁹ C</div><div class="formula-desc">Elementary charge</div></div>
+      <div class="formula-card"><div class="formula">m_e = 9.11 × 10⁻³¹ kg</div><div class="formula-desc">Rest mass of electron</div></div>
+      <div class="formula-card"><div class="formula">m_p = 1.67 × 10⁻²⁷ kg</div><div class="formula-desc">Rest mass of proton</div></div>
+      <div class="formula-card"><div class="formula">u = 1.66 × 10⁻²⁷ kg</div><div class="formula-desc">Unified atomic mass unit</div></div>
+      <div class="formula-card"><div class="formula">R = 8.31 J K⁻¹ mol⁻¹</div><div class="formula-desc">Molar gas constant</div></div>
+      <div class="formula-card"><div class="formula">N_A = 6.02 × 10²³ mol⁻¹</div><div class="formula-desc">Avogadro constant</div></div>
+      <div class="formula-card"><div class="formula">k = 1.38 × 10⁻²³ J K⁻¹</div><div class="formula-desc">Boltzmann constant</div></div>
+      <div class="formula-card"><div class="formula">1 eV = 1.60 × 10⁻¹⁹ J</div><div class="formula-desc">Electronvolt conversion</div></div>
+      <div class="formula-card"><div class="formula">0 K = −273.15 °C</div><div class="formula-desc">Absolute zero</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>Ali Raza — CIE AS Physics 9702 Complete Formula Reference</span>
+  <span>Built with HTML &amp; CSS</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebra — Maths Visualizer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="math.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo">∑ Maths Visualizer</div>
+  <div class="nav-links">
+    <a href="math-home.html">Home</a>
+    <a href="math-algebra.html" class="active">Algebra</a>
+    <a href="math-functions.html">Functions</a>
+    <a href="math-trig.html">Trigonometry</a>
+    <a href="math-calculus.html">Calculus</a>
+    <a href="math-stats.html">Statistics</a>
+    <a href="math-mechanics.html">Mechanics</a>
+  </div>
+  <a href="math-home.html" class="back-home">← Home</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="eyebrow">// Topic 01 — Pure Mathematics</div>
+    <h1><span>Algebra</span></h1>
+    <p>Quadratics, polynomials, surds, logarithms, binomial expansion, and inequalities — with interactive visualizers.</p>
+  </div>
+</div>
+
+<main>
+
+  <!-- QUADRATICS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2>Quadratics</h2></div>
+
+    <div class="content-block">
+      <div class="block-title">Key Formulas</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">x = (−b ± √(b²−4ac)) / 2a</div><div class="f-name">Quadratic Formula</div><div class="f-note">Solves ax² + bx + c = 0 for any values of a, b, c</div></div>
+        <div class="formula-card key"><div class="f-eq">Δ = b² − 4ac</div><div class="f-name">Discriminant</div><div class="f-note">Δ &gt; 0: two real roots · Δ = 0: one repeated root · Δ &lt; 0: no real roots</div></div>
+        <div class="formula-card"><div class="f-eq">y = a(x − h)² + k</div><div class="f-name">Vertex (Completed Square) Form</div><div class="f-note">Vertex at (h, k). Axis of symmetry: x = h</div></div>
+        <div class="formula-card"><div class="f-eq">x = −b / 2a</div><div class="f-name">Axis of Symmetry</div><div class="f-note">x-coordinate of the turning point</div></div>
+        <div class="formula-card"><div class="f-eq">Sum of roots = −b/a</div><div class="f-name">Vieta's Formulas</div><div class="f-note">Product of roots = c/a. For ax²+bx+c=0 with roots α, β</div></div>
+        <div class="formula-card"><div class="f-eq">(x + y)² = x² + 2xy + y²</div><div class="f-name">Perfect Square Expansion</div><div class="f-note">(x − y)² = x² − 2xy + y²</div></div>
+        <div class="formula-card"><div class="f-eq">x² − y² = (x+y)(x−y)</div><div class="f-name">Difference of Two Squares</div><div class="f-note">Useful for factorisation</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <div class="block-title">Interactive — Quadratic Graph Explorer</div>
+      <div class="viz-wrap">
+        <h4>// Adjust a, b, c to see how the parabola changes</h4>
+        <canvas id="quadCanvas" height="300"></canvas>
+        <div class="viz-controls">
+          <label>a: <input type="range" id="qa" min="-3" max="3" step="0.5" value="1"><span id="qaV">1</span></label>
+          <label>b: <input type="range" id="qb" min="-6" max="6" step="1" value="0"><span id="qbV">0</span></label>
+          <label>c: <input type="range" id="qc" min="-6" max="6" step="1" value="-3"><span id="qcV">−3</span></label>
+        </div>
+        <div style="margin-top:0.75rem;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--muted2)" id="quadInfo"></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <div class="block-title">Completing the Square — Method</div>
+      <div class="info-grid">
+        <div class="info-card purple-border"><h4>Step 1</h4><p>Write ax² + bx + c. Factor out a from the x terms: a(x² + (b/a)x) + c</p></div>
+        <div class="info-card blue-border"><h4>Step 2</h4><p>Add and subtract (b/2a)²: a[(x + b/2a)² − (b/2a)²] + c</p></div>
+        <div class="info-card green-border"><h4>Step 3</h4><p>Expand and simplify to get a(x − h)² + k where h = −b/2a, k = c − b²/4a</p></div>
+        <div class="info-card orange-border"><h4>Why it works</h4><p>Vertex form immediately tells you the turning point (h, k) and whether it's a min or max</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POLYNOMIALS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2>Polynomials &amp; Factor Theorem</h2></div>
+    <div class="content-block">
+      <div class="block-title">Key Theorems</div>
+      <div class="formula-grid">
+        <div class="formula-card key wide"><div class="f-eq">If f(a) = 0, then (x − a) is a factor of f(x)</div><div class="f-name">Factor Theorem</div><div class="f-note">Test potential factors by substitution. If result is 0, it's a factor.</div></div>
+        <div class="formula-card key wide"><div class="f-eq">f(a) = remainder when f(x) is divided by (x − a)</div><div class="f-name">Remainder Theorem</div><div class="f-note">No need to do full division — just substitute x = a into f(x)</div></div>
+        <div class="formula-card"><div class="f-eq">f(x) = (x−a) · Q(x) + R</div><div class="f-name">Polynomial Division Result</div><div class="f-note">Q(x) = quotient, R = remainder</div></div>
+        <div class="formula-card"><div class="f-eq">x³ + y³ = (x+y)(x²−xy+y²)</div><div class="f-name">Sum of Cubes</div><div class="f-note">x³ − y³ = (x−y)(x²+xy+y²)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SURDS & INDICES -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2>Surds &amp; Indices</h2></div>
+    <div class="content-block">
+      <div class="block-title">Surd Rules</div>
+      <div class="formula-grid">
+        <div class="formula-card"><div class="f-eq">√(ab) = √a · √b</div><div class="f-name">Product Rule</div></div>
+        <div class="formula-card"><div class="f-eq">√(a/b) = √a / √b</div><div class="f-name">Quotient Rule</div></div>
+        <div class="formula-card"><div class="f-eq">(√a)² = a</div><div class="f-name">Square of surd</div></div>
+        <div class="formula-card"><div class="f-eq">a / (p + q√b) → multiply by (p − q√b)/(p − q√b)</div><div class="f-name">Rationalising the Denominator</div><div class="f-note">Conjugate pair: (p+q√b)(p−q√b) = p²−q²b</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Index Laws</div>
+      <div class="formula-grid">
+        <div class="formula-card"><div class="f-eq">aᵐ · aⁿ = aᵐ⁺ⁿ</div><div class="f-name">Multiplication</div></div>
+        <div class="formula-card"><div class="f-eq">aᵐ / aⁿ = aᵐ⁻ⁿ</div><div class="f-name">Division</div></div>
+        <div class="formula-card"><div class="f-eq">(aᵐ)ⁿ = aᵐⁿ</div><div class="f-name">Power of a Power</div></div>
+        <div class="formula-card"><div class="f-eq">a⁰ = 1</div><div class="f-name">Zero Power</div><div class="f-note">For any a ≠ 0</div></div>
+        <div class="formula-card"><div class="f-eq">a⁻ⁿ = 1 / aⁿ</div><div class="f-name">Negative Index</div></div>
+        <div class="formula-card"><div class="f-eq">a^(1/n) = ⁿ√a</div><div class="f-name">Fractional Index (root)</div></div>
+        <div class="formula-card"><div class="f-eq">a^(m/n) = ⁿ√(aᵐ) = (ⁿ√a)ᵐ</div><div class="f-name">Fractional Index (general)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGARITHMS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">04</span><h2>Logarithms &amp; Exponentials</h2></div>
+    <div class="content-block">
+      <div class="block-title">Log Laws</div>
+      <div class="formula-grid">
+        <div class="formula-card key wide"><div class="f-eq">y = aˣ  ⟺  x = log_a(y)</div><div class="f-name">Definition of Logarithm</div><div class="f-note">log_a(y) asks: "to what power must a be raised to get y?"</div></div>
+        <div class="formula-card"><div class="f-eq">log(AB) = log A + log B</div><div class="f-name">Product Rule</div></div>
+        <div class="formula-card"><div class="f-eq">log(A/B) = log A − log B</div><div class="f-name">Quotient Rule</div></div>
+        <div class="formula-card"><div class="f-eq">log(Aⁿ) = n log A</div><div class="f-name">Power Rule</div></div>
+        <div class="formula-card"><div class="f-eq">log_a(a) = 1</div><div class="f-name">Log of its own base</div></div>
+        <div class="formula-card"><div class="f-eq">log_a(1) = 0</div><div class="f-name">Log of 1</div></div>
+        <div class="formula-card"><div class="f-eq">log_b(x) = log(x) / log(b)</div><div class="f-name">Change of Base</div><div class="f-note">Convert between any bases using this formula</div></div>
+        <div class="formula-card"><div class="f-eq">ln(x) = log_e(x), e ≈ 2.718</div><div class="f-name">Natural Logarithm</div><div class="f-note">ln(eˣ) = x and e^(ln x) = x</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BINOMIAL -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">05</span><h2>Binomial Expansion</h2></div>
+    <div class="content-block">
+      <div class="block-title">Formulas &amp; Pascal's Triangle</div>
+      <div class="formula-grid">
+        <div class="formula-card key wide"><div class="f-eq">(a + b)ⁿ = Σ C(n,r) · aⁿ⁻ʳ · bʳ  (r = 0 to n)</div><div class="f-name">Binomial Theorem</div><div class="f-note">C(n,r) = n! / (r!(n−r)!) = ⁿCᵣ — the binomial coefficient</div></div>
+        <div class="formula-card"><div class="f-eq">C(n,r) = n! / (r!(n−r)!)</div><div class="f-name">Binomial Coefficient</div><div class="f-note">Also written ⁿCᵣ or (n choose r)</div></div>
+        <div class="formula-card"><div class="f-eq">T(r+1) = C(n,r) · aⁿ⁻ʳ · bʳ</div><div class="f-name">(r+1)th Term (General Term)</div><div class="f-note">r starts at 0; use this to find a specific term</div></div>
+        <div class="formula-card"><div class="f-eq">(1+x)ⁿ ≈ 1 + nx + n(n−1)x²/2! + ...</div><div class="f-name">Binomial Approximation (|x| &lt; 1)</div><div class="f-note">Valid for any n when |x| &lt; 1</div></div>
+      </div>
+      <div class="viz-wrap" style="margin-top:1rem">
+        <h4>// Pascal's Triangle (first 7 rows)</h4>
+        <div id="pascal" style="font-family:'Space Mono',monospace;font-size:0.82rem;line-height:2;text-align:center;color:var(--muted2)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INEQUALITIES -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">06</span><h2>Inequalities</h2></div>
+    <div class="content-block">
+      <div class="block-title">Rules &amp; Methods</div>
+      <div class="formula-grid">
+        <div class="formula-card key wide"><div class="f-eq">Flip the inequality when multiplying or dividing by a NEGATIVE number</div><div class="f-name">Critical Rule</div><div class="f-note">e.g. −2x &gt; 4  →  x &lt; −2</div></div>
+        <div class="formula-card"><div class="f-eq">ax² + bx + c &gt; 0 or &lt; 0</div><div class="f-name">Quadratic Inequality</div><div class="f-note">Sketch the parabola and read off where it's above/below x-axis. Always find roots first.</div></div>
+        <div class="formula-card"><div class="f-eq">|x| &lt; a  ⟺  −a &lt; x &lt; a</div><div class="f-name">Modulus Inequality</div><div class="f-note">|x| &gt; a  ⟺  x &lt; −a  or  x &gt; a</div></div>
+        <div class="formula-card"><div class="f-eq">Linear: isolate x, keeping direction</div><div class="f-name">Linear Inequality</div><div class="f-note">Same as solving an equation, except flip sign when ÷ or × by negative</div></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>Ali Raza — Algebra</span>
+  <span><a href="math-functions.html" style="color:var(--accent)">Next: Functions →</a></span>
+</footer>
+
+<script>
+// ── Quadratic Visualizer ──
+const qCanvas = document.getElementById('quadCanvas');
+const qCtx = qCanvas.getContext('2d');
+function resizeQ() { qCanvas.width = qCanvas.offsetWidth; qCanvas.height = 300; }
+window.addEventListener('resize', () => { resizeQ(); drawQ(); });
+resizeQ();
+
+function drawQ() {
+  const a = parseFloat(document.getElementById('qa').value);
+  const b = parseFloat(document.getElementById('qb').value);
+  const c = parseFloat(document.getElementById('qc').value);
+  document.getElementById('qaV').textContent = a;
+  document.getElementById('qbV').textContent = b;
+  document.getElementById('qcV').textContent = c;
+
+  const W = qCanvas.width, H = qCanvas.height;
+  const ox = W/2, oy = H/2, scale = 30;
+  qCtx.clearRect(0,0,W,H);
+
+  // Grid
+  qCtx.strokeStyle='#2a3249'; qCtx.lineWidth=1;
+  for(let x=-10;x<=10;x++){qCtx.beginPath();qCtx.moveTo(ox+x*scale,0);qCtx.lineTo(ox+x*scale,H);qCtx.stroke();}
+  for(let y=-5;y<=5;y++){qCtx.beginPath();qCtx.moveTo(0,oy+y*scale);qCtx.lineTo(W,oy+y*scale);qCtx.stroke();}
+  // Axes
+  qCtx.strokeStyle='#4a5568'; qCtx.lineWidth=1.5;
+  qCtx.beginPath();qCtx.moveTo(0,oy);qCtx.lineTo(W,oy);qCtx.stroke();
+  qCtx.beginPath();qCtx.moveTo(ox,0);qCtx.lineTo(ox,H);qCtx.stroke();
+
+  // Parabola
+  if(a!==0){
+    qCtx.beginPath(); qCtx.strokeStyle='#a78bfa'; qCtx.lineWidth=2.5;
+    let first=true;
+    for(let px=0;px<W;px++){
+      const x=(px-ox)/scale;
+      const y=a*x*x+b*x+c;
+      const py=oy-y*scale;
+      if(py<-100||py>H+100){first=true;continue;}
+      first?qCtx.moveTo(px,py):qCtx.lineTo(px,py); first=false;
+    }
+    qCtx.stroke();
+
+    // Vertex
+    const vx=-b/(2*a), vy=a*vx*vx+b*vx+c;
+    const vpx=ox+vx*scale, vpy=oy-vy*scale;
+    qCtx.fillStyle='#f97316'; qCtx.beginPath(); qCtx.arc(vpx,vpy,5,0,Math.PI*2); qCtx.fill();
+    qCtx.fillStyle='#e8eaf0'; qCtx.font='11px Space Mono'; qCtx.fillText(`vertex(${vx.toFixed(1)}, ${vy.toFixed(1)})`,vpx+8,vpy-6);
+
+    // Discriminant info
+    const disc=b*b-4*a*c;
+    const roots = disc>0?`2 real roots: x = ${((-b+Math.sqrt(disc))/(2*a)).toFixed(2)}, ${((-b-Math.sqrt(disc))/(2*a)).toFixed(2)}`
+                       :disc===0?`1 repeated root: x = ${(-b/(2*a)).toFixed(2)}`:'No real roots (Δ < 0)';
+    document.getElementById('quadInfo').textContent = `y = ${a}x² + ${b}x + ${c}   |   Δ = ${disc.toFixed(2)}   |   ${roots}`;
+  }
+}
+['qa','qb','qc'].forEach(id=>document.getElementById(id).addEventListener('input',drawQ));
+drawQ();
+
+// ── Pascal's Triangle ──
+function pascal(n){const t=[[1]];for(let i=1;i<n;i++){const r=[1];for(let j=1;j<i;j++)r.push(t[i-1][j-1]+t[i-1][j]);r.push(1);t.push(r);}return t;}
+const pt=pascal(7);
+document.getElementById('pascal').innerHTML=pt.map(r=>'<div>'+r.map(v=>`<span style="display:inline-block;min-width:32px;color:#a78bfa">${v}</span>`).join('')+'</div>').join('');
+</script>
+</body>
+</html>

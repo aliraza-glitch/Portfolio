@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistics — Maths Visualizer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="math.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo">∑ Maths Visualizer</div>
+  <div class="nav-links">
+    <a href="math-home.html">Home</a><a href="math-algebra.html">Algebra</a>
+    <a href="math-functions.html">Functions</a><a href="math-trig.html">Trigonometry</a>
+    <a href="math-calculus.html">Calculus</a><a href="math-stats.html" class="active">Statistics</a><a href="math-mechanics.html">Mechanics</a>
+  </div>
+  <a href="math-home.html" class="back-home">← Home</a>
+</nav>
+<div class="page-header"><div class="page-header-inner">
+  <div class="eyebrow">// Topic 05 — Statistics</div>
+  <h1><span>Statistics</span> &amp; Probability</h1>
+  <p>Measures of central tendency, spread, probability, permutations, combinations, and distributions.</p>
+</div></div>
+<main>
+
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2>Measures of Central Tendency &amp; Spread</h2></div>
+    <div class="content-block">
+      <div class="block-title">Averages</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">x̄ = (Σx) / n</div><div class="f-name">Mean</div><div class="f-note">Sum of all values ÷ number of values. Σfx / Σf for grouped data.</div></div>
+        <div class="formula-card"><div class="f-eq">Median = middle value when ordered</div><div class="f-name">Median</div><div class="f-note">For n values: position (n+1)/2. For even n: average of two middle values.</div></div>
+        <div class="formula-card"><div class="f-eq">Mode = most frequent value</div><div class="f-name">Mode</div><div class="f-note">Can be more than one mode (bimodal, multimodal)</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Measures of Spread</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">σ² = Σ(x − x̄)² / n = Σx²/n − x̄²</div><div class="f-name">Variance</div><div class="f-note">Second formula (Σx²/n − x̄²) is easier to compute. Units are squared.</div></div>
+        <div class="formula-card key"><div class="f-eq">σ = √variance</div><div class="f-name">Standard Deviation</div><div class="f-note">Same units as the data. Measure of spread around the mean.</div></div>
+        <div class="formula-card"><div class="f-eq">Range = max − min</div><div class="f-name">Range</div></div>
+        <div class="formula-card"><div class="f-eq">IQR = Q3 − Q1</div><div class="f-name">Interquartile Range</div><div class="f-note">Q1 = lower quartile (25th percentile), Q3 = upper quartile (75th percentile)</div></div>
+        <div class="formula-card"><div class="f-eq">s² = Σ(x−x̄)² / (n−1)</div><div class="f-name">Sample Variance (unbiased)</div><div class="f-note">Use n−1 (Bessel's correction) for sample estimating population</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2>Probability</h2></div>
+    <div class="content-block">
+      <div class="block-title">Core Rules</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">P(A) = favourable outcomes / total outcomes</div><div class="f-name">Basic Probability</div><div class="f-note">0 ≤ P(A) ≤ 1 always. P(impossible) = 0. P(certain) = 1.</div></div>
+        <div class="formula-card key"><div class="f-eq">P(A') = 1 − P(A)</div><div class="f-name">Complement</div><div class="f-note">P(A) + P(A') = 1</div></div>
+        <div class="formula-card key"><div class="f-eq">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</div><div class="f-name">Addition Rule</div><div class="f-note">Avoid double-counting the intersection</div></div>
+        <div class="formula-card"><div class="f-eq">P(A ∩ B) = 0 → mutually exclusive</div><div class="f-name">Mutually Exclusive Events</div><div class="f-note">Can't both happen. P(A ∪ B) = P(A) + P(B)</div></div>
+        <div class="formula-card"><div class="f-eq">P(A ∩ B) = P(A)·P(B) → independent</div><div class="f-name">Independent Events</div><div class="f-note">Occurrence of A doesn't affect B</div></div>
+        <div class="formula-card"><div class="f-eq">P(A|B) = P(A ∩ B) / P(B)</div><div class="f-name">Conditional Probability</div><div class="f-note">"Probability of A given B has occurred"</div></div>
+        <div class="formula-card"><div class="f-eq">P(A ∩ B) = P(A|B) · P(B)</div><div class="f-name">Multiplication Rule</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2>Permutations &amp; Combinations</h2></div>
+    <div class="content-block">
+      <div class="block-title">Counting Formulas</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">n! = n × (n−1) × ... × 2 × 1</div><div class="f-name">Factorial</div><div class="f-note">0! = 1 by definition</div></div>
+        <div class="formula-card key"><div class="f-eq">ⁿPᵣ = n! / (n−r)!</div><div class="f-name">Permutations</div><div class="f-note">Ordered arrangements of r items from n. ORDER MATTERS.</div></div>
+        <div class="formula-card key"><div class="f-eq">ⁿCᵣ = n! / (r!(n−r)!)</div><div class="f-name">Combinations</div><div class="f-note">Selections of r items from n. ORDER DOESN'T MATTER.</div></div>
+        <div class="formula-card"><div class="f-eq">ⁿCᵣ = ⁿCₙ₋ᵣ</div><div class="f-name">Symmetry of Combinations</div></div>
+        <div class="formula-card"><div class="f-eq">Total arrangements = n! / (n₁! n₂! ...)</div><div class="f-name">Arrangements with Repeats</div><div class="f-note">Divide by factorial of each repeated group</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-num">04</span><h2>Probability Distributions</h2></div>
+    <div class="content-block">
+      <div class="block-title">Discrete Random Variables</div>
+      <div class="formula-grid">
+        <div class="formula-card wide"><div class="f-eq">Σ P(X = x) = 1 for all x</div><div class="f-name">Probability Distribution Condition</div><div class="f-note">All probabilities must sum to 1</div></div>
+        <div class="formula-card key"><div class="f-eq">E(X) = Σ x · P(X = x)</div><div class="f-name">Expected Value (Mean)</div><div class="f-note">The theoretical long-run average</div></div>
+        <div class="formula-card key"><div class="f-eq">Var(X) = E(X²) − [E(X)]²</div><div class="f-name">Variance</div><div class="f-note">E(X²) = Σ x² · P(X=x)</div></div>
+        <div class="formula-card"><div class="f-eq">E(aX + b) = aE(X) + b</div><div class="f-name">Linear transformation of E(X)</div></div>
+        <div class="formula-card"><div class="f-eq">Var(aX + b) = a²Var(X)</div><div class="f-name">Linear transformation of Var(X)</div><div class="f-note">Adding a constant b does NOT affect variance</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Binomial Distribution B(n, p)</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">P(X = r) = ⁿCᵣ · pʳ · (1−p)ⁿ⁻ʳ</div><div class="f-name">Binomial Probability</div><div class="f-note">n = number of trials, p = probability of success, r = number of successes</div></div>
+        <div class="formula-card"><div class="f-eq">E(X) = np</div><div class="f-name">Binomial Mean</div></div>
+        <div class="formula-card"><div class="f-eq">Var(X) = np(1−p) = npq</div><div class="f-name">Binomial Variance</div><div class="f-note">q = 1 − p = probability of failure</div></div>
+        <div class="formula-card wide"><div class="f-eq">Conditions: fixed n, each trial independent, constant p, only two outcomes (success/failure)</div><div class="f-name">When to use Binomial</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Normal Distribution N(μ, σ²)</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">X ~ N(μ, σ²)</div><div class="f-name">Normal Distribution Notation</div><div class="f-note">μ = mean, σ² = variance, σ = standard deviation. Bell-shaped, symmetric about μ.</div></div>
+        <div class="formula-card key"><div class="f-eq">Z = (X − μ) / σ</div><div class="f-name">Standardisation (Z-score)</div><div class="f-note">Z ~ N(0,1) — standard normal. Use Z-tables to find probabilities.</div></div>
+        <div class="formula-card"><div class="f-eq">P(X &lt; a) = P(Z &lt; (a−μ)/σ)</div><div class="f-name">Finding Probabilities</div></div>
+        <div class="formula-card"><div class="f-eq">P(Z &lt; −z) = P(Z &gt; z) = 1 − P(Z &lt; z)</div><div class="f-name">Symmetry of Normal</div></div>
+        <div class="formula-card wide"><div class="f-eq">68% within 1σ · 95% within 2σ · 99.7% within 3σ</div><div class="f-name">Empirical Rule (68-95-99.7)</div><div class="f-note">These are approximate. Use Z-tables for exact values.</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Interactive — Normal Distribution</div>
+      <div class="viz-wrap">
+        <canvas id="normalCanvas" height="280"></canvas>
+        <div class="viz-controls">
+          <label>μ (mean): <input type="range" id="nm" min="-3" max="3" step="0.5" value="0"><span id="nmV">0</span></label>
+          <label>σ (std dev): <input type="range" id="ns" min="0.5" max="3" step="0.25" value="1"><span id="nsV">1</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<footer>
+  <span>Ali Raza — Statistics</span>
+  <span><a href="math-mechanics.html" style="color:var(--accent)">Next: Mechanics →</a></span>
+</footer>
+<script>
+const nc=document.getElementById('normalCanvas');
+const nctx=nc.getContext('2d');
+function resizeNC(){nc.width=nc.offsetWidth;nc.height=280;}
+window.addEventListener('resize',()=>{resizeNC();drawN();});
+resizeNC();
+function normalPDF(x,mu,sigma){return Math.exp(-0.5*((x-mu)/sigma)**2)/(sigma*Math.sqrt(2*Math.PI));}
+function drawN(){
+  const mu=parseFloat(document.getElementById('nm').value);
+  const sigma=parseFloat(document.getElementById('ns').value);
+  document.getElementById('nmV').textContent=mu;
+  document.getElementById('nsV').textContent=sigma;
+  const W=nc.width,H=280,ox=W/2,bot=H-30,scX=W/12,scY=(H-60);
+  nctx.clearRect(0,0,W,H);
+  // Grid
+  nctx.strokeStyle='#2a3249';nctx.lineWidth=1;
+  for(let x=-6;x<=6;x++){nctx.beginPath();nctx.moveTo(ox+x*scX,0);nctx.lineTo(ox+x*scX,H);nctx.stroke();}
+  // Baseline
+  nctx.strokeStyle='#4a5568';nctx.lineWidth=1.5;
+  nctx.beginPath();nctx.moveTo(0,bot);nctx.lineTo(W,bot);nctx.stroke();
+  // Filled curve
+  const maxY=normalPDF(mu,mu,sigma);
+  nctx.fillStyle='rgba(167,139,250,0.2)';
+  nctx.beginPath();nctx.moveTo(0,bot);
+  for(let px=0;px<W;px++){
+    const x=(px-ox)/scX;
+    const y=normalPDF(x,mu,sigma);
+    nctx.lineTo(px,bot-y/maxY*scY*0.85);
+  }
+  nctx.lineTo(W,bot);nctx.closePath();nctx.fill();
+  // Curve
+  nctx.beginPath();nctx.strokeStyle='#a78bfa';nctx.lineWidth=2.5;
+  for(let px=0;px<W;px++){
+    const x=(px-ox)/scX;
+    const y=normalPDF(x,mu,sigma);
+    const py=bot-y/maxY*scY*0.85;
+    px===0?nctx.moveTo(px,py):nctx.lineTo(px,py);
+  }
+  nctx.stroke();
+  // Mean line
+  nctx.strokeStyle='#f97316';nctx.lineWidth=1.5;nctx.setLineDash([5,4]);
+  nctx.beginPath();nctx.moveTo(ox+mu*scX,0);nctx.lineTo(ox+mu*scX,H);nctx.stroke();
+  nctx.setLineDash([]);
+  // σ markers
+  nctx.strokeStyle='#60a5fa';nctx.lineWidth=1;nctx.setLineDash([3,3]);
+  [-1,1].forEach(s=>{
+    nctx.beginPath();nctx.moveTo(ox+(mu+s*sigma)*scX,0);nctx.lineTo(ox+(mu+s*sigma)*scX,H);nctx.stroke();
+  });
+  nctx.setLineDash([]);
+  // Labels
+  nctx.font='11px Space Mono';nctx.fillStyle='#f97316';nctx.textAlign='center';
+  nctx.fillText('μ='+mu,ox+mu*scX,bot+18);
+  nctx.fillStyle='#60a5fa';
+  nctx.fillText('μ−σ',ox+(mu-sigma)*scX,bot+18);
+  nctx.fillText('μ+σ',ox+(mu+sigma)*scX,bot+18);
+  nctx.textAlign='left';
+}
+['nm','ns'].forEach(id=>document.getElementById(id).addEventListener('input',drawN));
+drawN();
+</script>
+</body>
+</html>

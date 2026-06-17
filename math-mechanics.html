@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanics — Maths Visualizer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="math.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo">∑ Maths Visualizer</div>
+  <div class="nav-links">
+    <a href="math-home.html">Home</a><a href="math-algebra.html">Algebra</a>
+    <a href="math-functions.html">Functions</a><a href="math-trig.html">Trigonometry</a>
+    <a href="math-calculus.html">Calculus</a><a href="math-stats.html">Statistics</a><a href="math-mechanics.html" class="active">Mechanics</a>
+  </div>
+  <a href="math-home.html" class="back-home">← Home</a>
+</nav>
+<div class="page-header"><div class="page-header-inner">
+  <div class="eyebrow">// Topic 06 — Mechanics</div>
+  <h1><span>Mechanics</span></h1>
+  <p>Vectors, kinematics, Newton's laws, connected particles, moments, and energy — the mathematical treatment of motion and forces.</p>
+</div></div>
+<main>
+
+  <!-- VECTORS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2>Vectors</h2></div>
+    <div class="content-block">
+      <div class="block-title">Vector Notation &amp; Components</div>
+      <div class="formula-grid">
+        <div class="formula-card key wide"><div class="f-eq">a = xi + yj  =  (x, y)</div><div class="f-name">Component Form</div><div class="f-note">i and j are unit vectors along the x and y axes. x = horizontal component, y = vertical component.</div></div>
+        <div class="formula-card key"><div class="f-eq">|a| = √(x² + y²)</div><div class="f-name">Magnitude</div><div class="f-note">The length of the vector — always positive</div></div>
+        <div class="formula-card key"><div class="f-eq">θ = tan⁻¹(y / x)</div><div class="f-name">Direction</div><div class="f-note">Angle measured from the positive x-axis (i-direction)</div></div>
+        <div class="formula-card"><div class="f-eq">a + b = (x₁+x₂)i + (y₁+y₂)j</div><div class="f-name">Vector Addition</div><div class="f-note">Add components separately</div></div>
+        <div class="formula-card"><div class="f-eq">â = a / |a|</div><div class="f-name">Unit Vector</div><div class="f-note">A vector of magnitude 1 in the same direction as a</div></div>
+        <div class="formula-card"><div class="f-eq">|AB| = |b − a|</div><div class="f-name">Distance Between Points</div><div class="f-note">Magnitude of the displacement vector from A to B</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <div class="block-title">Interactive — Vector Addition</div>
+      <div class="viz-wrap">
+        <h4>// Adjust magnitude and direction of vectors A and B to see the resultant</h4>
+        <canvas id="vecCanvas" height="320"></canvas>
+        <div class="viz-controls">
+          <label>|A|: <input type="range" id="vAmag" min="0" max="5" step="0.5" value="3"><span id="vAmagV">3</span></label>
+          <label>θA: <input type="range" id="vAang" min="0" max="360" step="5" value="30"><span id="vAangV">30°</span></label>
+          <label>|B|: <input type="range" id="vBmag" min="0" max="5" step="0.5" value="2"><span id="vBmagV">2</span></label>
+          <label>θB: <input type="range" id="vBang" min="0" max="360" step="5" value="120"><span id="vBangV">120°</span></label>
+        </div>
+        <div id="vecInfo" style="margin-top:0.75rem;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--muted2);line-height:1.8"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KINEMATICS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2>Kinematics</h2></div>
+    <div class="content-block">
+      <div class="block-title">SUVAT Equations (Straight-Line Motion)</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">v = u + at</div><div class="f-name">No displacement</div></div>
+        <div class="formula-card key"><div class="f-eq">s = ut + ½at²</div><div class="f-name">No final velocity</div></div>
+        <div class="formula-card key"><div class="f-eq">v² = u² + 2as</div><div class="f-name">No time</div></div>
+        <div class="formula-card key"><div class="f-eq">s = ½(u + v)t</div><div class="f-name">No acceleration</div></div>
+        <div class="formula-card"><div class="f-eq">s = vt − ½at²</div><div class="f-name">No initial velocity</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Calculus Connections</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">v = ds/dt</div><div class="f-name">Velocity = rate of change of displacement</div></div>
+        <div class="formula-card key"><div class="f-eq">a = dv/dt = d²s/dt²</div><div class="f-name">Acceleration = rate of change of velocity</div></div>
+        <div class="formula-card key"><div class="f-eq">v = ∫a dt</div><div class="f-name">Integrate acceleration to get velocity</div><div class="f-note">Add constant of integration using initial conditions</div></div>
+        <div class="formula-card key"><div class="f-eq">s = ∫v dt</div><div class="f-name">Integrate velocity to get displacement</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Vector Kinematics (2D Motion)</div>
+      <div class="formula-grid">
+        <div class="formula-card wide"><div class="f-eq">r = r₀ + vt + ½at²</div><div class="f-name">Position Vector</div><div class="f-note">r₀ = initial position vector, v = initial velocity vector, a = acceleration vector — all in component (i, j) form</div></div>
+        <div class="formula-card"><div class="f-eq">v = v₀ + at</div><div class="f-name">Velocity Vector</div></div>
+        <div class="formula-card"><div class="f-eq">Speed = |v|</div><div class="f-name">Speed from velocity vector</div><div class="f-note">Speed is the magnitude of the velocity vector (scalar)</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Graphs of Motion</div>
+      <div class="info-grid">
+        <div class="info-card blue-border"><h4>Displacement-Time (s–t)</h4><p>Gradient = velocity. A curve indicates changing velocity (acceleration). Horizontal line = object at rest.</p></div>
+        <div class="info-card green-border"><h4>Velocity-Time (v–t)</h4><p>Gradient = acceleration. Area under the graph = displacement. Area below the time-axis represents negative displacement.</p></div>
+        <div class="info-card orange-border"><h4>Acceleration-Time (a–t)</h4><p>Area under the graph = change in velocity. Constant a → straight horizontal line.</p></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Interactive — Velocity-Time Graph</div>
+      <div class="viz-wrap">
+        <h4>// v = u + at — shaded area shows displacement over [0, t]</h4>
+        <canvas id="suvatCanvas" height="280"></canvas>
+        <div class="viz-controls">
+          <label>u (initial velocity): <input type="range" id="su" min="-5" max="10" step="1" value="2"><span id="suV">2</span></label>
+          <label>a (acceleration): <input type="range" id="sa" min="-3" max="3" step="0.5" value="1"><span id="saV">1</span></label>
+          <label>t (time, s): <input type="range" id="st" min="1" max="10" step="0.5" value="5"><span id="stV">5</span></label>
+        </div>
+        <div id="suvatInfo" style="margin-top:0.6rem;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--muted2)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORCES & NEWTON'S LAWS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2>Forces &amp; Newton's Laws</h2></div>
+    <div class="content-block">
+      <div class="block-title">Core Force Equations</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">F = ma</div><div class="f-name">Newton's Second Law</div><div class="f-note">F = resultant force (N), m = mass (kg), a = acceleration (ms⁻²). In vector form: ΣF = ma</div></div>
+        <div class="formula-card key"><div class="f-eq">W = mg</div><div class="f-name">Weight</div><div class="f-note">g ≈ 9.8 ms⁻² (CIE uses 9.8 in Mechanics, unlike Physics' 9.81)</div></div>
+        <div class="formula-card key"><div class="f-eq">ΣF = 0  ⟺  equilibrium</div><div class="f-name">Equilibrium Condition</div><div class="f-note">Object is at rest or moving with constant velocity</div></div>
+        <div class="formula-card"><div class="f-eq">F ≤ μR (limiting case: F = μR)</div><div class="f-name">Friction</div><div class="f-note">μ = coefficient of friction, R = normal reaction force. Friction acts to oppose relative motion.</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Resolving Forces</div>
+      <div class="formula-grid">
+        <div class="formula-card wide"><div class="f-eq">Resolve along and perpendicular to the direction of motion (or an inclined plane)</div><div class="f-name">Resolving Strategy</div><div class="f-note">Component along plane: F sinθ or F cosθ depending on the angle's position. Choose axes that simplify the equations — usually along the slope and perpendicular to it.</div></div>
+        <div class="formula-card key"><div class="f-eq">Along slope: mg sinθ − F = ma</div><div class="f-name">Object on Inclined Plane</div><div class="f-note">θ = angle of incline. F = friction (if present) acting up the slope when object slides down.</div></div>
+        <div class="formula-card key"><div class="f-eq">Perpendicular: R = mg cosθ</div><div class="f-name">Normal Reaction (on incline)</div><div class="f-note">Used together with F = μR for friction problems</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONNECTED PARTICLES -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">04</span><h2>Connected Particles</h2></div>
+    <div class="content-block">
+      <div class="block-title">Strings, Pulleys &amp; Tension</div>
+      <div class="formula-grid">
+        <div class="formula-card wide"><div class="f-eq">Same string ⟹ same tension T throughout (assuming light, inextensible string and smooth/light pulley)</div><div class="f-name">Key Assumption</div><div class="f-note">Both connected particles have the SAME magnitude of acceleration a</div></div>
+        <div class="formula-card key"><div class="f-eq">For falling mass: m₁g − T = m₁a</div><div class="f-name">Particle 1 (heavier, descending)</div></div>
+        <div class="formula-card key"><div class="f-eq">For rising mass: T − m₂g = m₂a</div><div class="f-name">Particle 2 (lighter, ascending)</div></div>
+        <div class="formula-card wide"><div class="f-eq">Add the two equations: (m₁ − m₂)g = (m₁ + m₂)a</div><div class="f-name">Solving the System</div><div class="f-note">Eliminates T to find a directly. Substitute back to find T.</div></div>
+        <div class="formula-card"><div class="f-eq">For horizontal connected particles: T = m₂a, F − T = m₁a (driving force F)</div><div class="f-name">Particles on a Surface</div><div class="f-note">Adjust signs for friction on each particle if present</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOMENTS & EQUILIBRIUM -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">05</span><h2>Moments &amp; Equilibrium</h2></div>
+    <div class="content-block">
+      <div class="block-title">Moments</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">Moment = F × d</div><div class="f-name">Turning Moment</div><div class="f-note">F = force (N), d = perpendicular distance from pivot to line of action of force (m). Units: Nm</div></div>
+        <div class="formula-card key wide"><div class="f-eq">Σ clockwise moments = Σ anticlockwise moments</div><div class="f-name">Principle of Moments</div><div class="f-note">Applies when a rigid body is in rotational equilibrium — take moments about any convenient point (usually a pivot or support)</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Equilibrium of Rigid Bodies</div>
+      <div class="formula-grid">
+        <div class="formula-card wide"><div class="f-eq">For full equilibrium: ΣFₓ = 0, ΣFᵥ = 0, AND Σmoments = 0</div><div class="f-name">Three Conditions</div><div class="f-note">All three must hold simultaneously for an object to be in static equilibrium</div></div>
+        <div class="formula-card"><div class="f-eq">x̄ = Σ(mᵢxᵢ) / Σmᵢ</div><div class="f-name">Centre of Mass (system of particles)</div><div class="f-note">Weighted average position. Apply separately for y-coordinate: ȳ = Σ(mᵢyᵢ)/Σmᵢ</div></div>
+        <div class="formula-card"><div class="f-eq">Toppling: object topples when line of weight falls outside the base</div><div class="f-name">Toppling Condition</div><div class="f-note">Check if centre of mass remains above the base for stability</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK, ENERGY, POWER -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">06</span><h2>Work, Energy &amp; Power</h2></div>
+    <div class="content-block">
+      <div class="block-title">Formulas</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">W = Fs cosθ</div><div class="f-name">Work Done</div><div class="f-note">θ = angle between force and direction of motion. If F is along direction of motion, W = Fs.</div></div>
+        <div class="formula-card key"><div class="f-eq">KE = ½mv²</div><div class="f-name">Kinetic Energy</div></div>
+        <div class="formula-card key"><div class="f-eq">GPE = mgh</div><div class="f-name">Gravitational Potential Energy</div><div class="f-note">h = vertical height gained</div></div>
+        <div class="formula-card key wide"><div class="f-eq">Work-Energy Principle: Work done by resultant force = ΔKE = ½mv² − ½mu²</div><div class="f-name">Work-Energy Theorem</div><div class="f-note">If non-conservative forces (friction) act: Work done against friction = loss in mechanical energy</div></div>
+        <div class="formula-card key"><div class="f-eq">P = W / t = Fv</div><div class="f-name">Power</div><div class="f-note">P = power (W), F = driving force (N), v = velocity (ms⁻¹) — for constant velocity</div></div>
+        <div class="formula-card"><div class="f-eq">Energy conservation: KE₁ + PE₁ = KE₂ + PE₂ (no friction)</div><div class="f-name">Conservation of Mechanical Energy</div><div class="f-note">Total mechanical energy stays constant if only gravity does work</div></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<footer>
+  <span>Ali Raza — Mechanics</span>
+  <span><a href="math-home.html" style="color:var(--accent)">↻ Back to All Topics</a></span>
+</footer>
+<script>
+// ── Vector Addition Visualizer ──
+const vc=document.getElementById('vecCanvas');
+const vctx=vc.getContext('2d');
+function resizeVC(){vc.width=vc.offsetWidth;vc.height=320;}
+window.addEventListener('resize',()=>{resizeVC();drawVec();});
+resizeVC();
+
+function drawArrow(ctx,fromX,fromY,toX,toY,color,width=2.5){
+  ctx.strokeStyle=color;ctx.lineWidth=width;
+  ctx.beginPath();ctx.moveTo(fromX,fromY);ctx.lineTo(toX,toY);ctx.stroke();
+  const angle=Math.atan2(toY-fromY,toX-fromX);
+  const headlen=10;
+  ctx.beginPath();
+  ctx.moveTo(toX,toY);
+  ctx.lineTo(toX-headlen*Math.cos(angle-Math.PI/6),toY-headlen*Math.sin(angle-Math.PI/6));
+  ctx.lineTo(toX-headlen*Math.cos(angle+Math.PI/6),toY-headlen*Math.sin(angle+Math.PI/6));
+  ctx.closePath();ctx.fillStyle=color;ctx.fill();
+}
+
+function drawVec(){
+  const Amag=parseFloat(document.getElementById('vAmag').value);
+  const Aang=parseFloat(document.getElementById('vAang').value);
+  const Bmag=parseFloat(document.getElementById('vBmag').value);
+  const Bang=parseFloat(document.getElementById('vBang').value);
+  document.getElementById('vAmagV').textContent=Amag;
+  document.getElementById('vAangV').textContent=Aang+'°';
+  document.getElementById('vBmagV').textContent=Bmag;
+  document.getElementById('vBangV').textContent=Bang+'°';
+
+  const W=vc.width,H=320,cx=W/2,cy=H/2,scale=35;
+  vctx.clearRect(0,0,W,H);
+
+  // Grid
+  vctx.strokeStyle='#2a3249';vctx.lineWidth=1;
+  for(let x=-8;x<=8;x++){vctx.beginPath();vctx.moveTo(cx+x*scale,0);vctx.lineTo(cx+x*scale,H);vctx.stroke();}
+  for(let y=-4;y<=4;y++){vctx.beginPath();vctx.moveTo(0,cy+y*scale);vctx.lineTo(W,cy+y*scale);vctx.stroke();}
+  // Axes
+  vctx.strokeStyle='#4a5568';vctx.lineWidth=1.5;
+  vctx.beginPath();vctx.moveTo(0,cy);vctx.lineTo(W,cy);vctx.stroke();
+  vctx.beginPath();vctx.moveTo(cx,0);vctx.lineTo(cx,H);vctx.stroke();
+
+  const Arad=Aang*Math.PI/180, Brad=Bang*Math.PI/180;
+  const Ax=Amag*Math.cos(Arad), Ay=Amag*Math.sin(Arad);
+  const Bx=Bmag*Math.cos(Brad), By=Bmag*Math.sin(Brad);
+  const Rx=Ax+Bx, Ry=Ay+By;
+
+  // Vector A (from origin)
+  drawArrow(vctx,cx,cy,cx+Ax*scale,cy-Ay*scale,'#60a5fa');
+  // Vector B (dashed, from tip of A — triangle method)
+  vctx.setLineDash([4,3]);
+  drawArrow(vctx,cx+Ax*scale,cy-Ay*scale,cx+Rx*scale,cy-Ry*scale,'#34d399');
+  vctx.setLineDash([]);
+  // Vector B from origin (solid)
+  drawArrow(vctx,cx,cy,cx+Bx*scale,cy-By*scale,'#34d399');
+  // Resultant
+  drawArrow(vctx,cx,cy,cx+Rx*scale,cy-Ry*scale,'#f97316',3);
+
+  // Labels
+  vctx.font='12px Space Mono';
+  vctx.fillStyle='#60a5fa';vctx.fillText('A',cx+Ax*scale*0.5+6,cy-Ay*scale*0.5-6);
+  vctx.fillStyle='#34d399';vctx.fillText('B',cx+Bx*scale*0.5+6,cy-By*scale*0.5-6);
+  vctx.fillStyle='#f97316';vctx.fillText('R = A+B',cx+Rx*scale*0.5+6,cy-Ry*scale*0.5-6);
+
+  const Rmag=Math.sqrt(Rx*Rx+Ry*Ry);
+  let Rang=Math.atan2(Ry,Rx)*180/Math.PI;
+  if(Rang<0)Rang+=360;
+
+  document.getElementById('vecInfo').innerHTML=
+    `<span style="color:#60a5fa">A = (${Ax.toFixed(2)}, ${Ay.toFixed(2)})</span>&nbsp;&nbsp;&nbsp;`+
+    `<span style="color:#34d399">B = (${Bx.toFixed(2)}, ${By.toFixed(2)})</span>&nbsp;&nbsp;&nbsp;`+
+    `<span style="color:#f97316">R = (${Rx.toFixed(2)}, ${Ry.toFixed(2)})</span><br>`+
+    `|R| = ${Rmag.toFixed(2)}&nbsp;&nbsp;&nbsp;θ_R = ${Rang.toFixed(1)}°`;
+}
+['vAmag','vAang','vBmag','vBang'].forEach(id=>document.getElementById(id).addEventListener('input',drawVec));
+drawVec();
+
+// ── SUVAT v-t Graph ──
+const sc=document.getElementById('suvatCanvas');
+const sctx=sc.getContext('2d');
+function resizeSC(){sc.width=sc.offsetWidth;sc.height=280;}
+window.addEventListener('resize',()=>{resizeSC();drawSuvat();});
+resizeSC();
+
+function drawSuvat(){
+  const u=parseFloat(document.getElementById('su').value);
+  const a=parseFloat(document.getElementById('sa').value);
+  const t=parseFloat(document.getElementById('st').value);
+  document.getElementById('suV').textContent=u;
+  document.getElementById('saV').textContent=a;
+  document.getElementById('stV').textContent=t;
+
+  const W=sc.width,H=280,ox=50,oy=H/2,scX=(W-70)/11,scY=12;
+  sctx.clearRect(0,0,W,H);
+
+  // Grid
+  sctx.strokeStyle='#2a3249';sctx.lineWidth=1;
+  for(let x=0;x<=11;x++){sctx.beginPath();sctx.moveTo(ox+x*scX,0);sctx.lineTo(ox+x*scX,H);sctx.stroke();}
+  for(let y=-8;y<=8;y++){sctx.beginPath();sctx.moveTo(0,oy+y*scY*2);sctx.lineTo(W,oy+y*scY*2);sctx.stroke();}
+  // Axes
+  sctx.strokeStyle='#4a5568';sctx.lineWidth=1.5;
+  sctx.beginPath();sctx.moveTo(0,oy);sctx.lineTo(W,oy);sctx.stroke();
+  sctx.beginPath();sctx.moveTo(ox,0);sctx.lineTo(ox,H);sctx.stroke();
+
+  // v(time) = u + a*time
+  function vAt(time){return u+a*time;}
+  const vEnd=vAt(t);
+
+  // Shaded area (displacement) from 0 to t
+  sctx.fillStyle='rgba(167,139,250,0.18)';
+  sctx.beginPath();
+  sctx.moveTo(ox,oy-vAt(0)*scY);
+  for(let time=0;time<=t;time+=0.05){
+    sctx.lineTo(ox+time*scX,oy-vAt(time)*scY);
+  }
+  sctx.lineTo(ox+t*scX,oy);
+  sctx.lineTo(ox,oy);
+  sctx.closePath();sctx.fill();
+
+  // Line for full range (0 to 11)
+  sctx.beginPath();sctx.strokeStyle='#a78bfa';sctx.lineWidth=2.5;
+  sctx.moveTo(ox,oy-vAt(0)*scY);
+  sctx.lineTo(ox+11*scX,oy-vAt(11)*scY);
+  sctx.stroke();
+
+  // Marker at t
+  sctx.strokeStyle='#f97316';sctx.lineWidth=1.5;sctx.setLineDash([4,3]);
+  sctx.beginPath();sctx.moveTo(ox+t*scX,0);sctx.lineTo(ox+t*scX,H);sctx.stroke();
+  sctx.setLineDash([]);
+  sctx.fillStyle='#f97316';sctx.beginPath();sctx.arc(ox+t*scX,oy-vEnd*scY,5,0,Math.PI*2);sctx.fill();
+
+  // Axis labels
+  sctx.font='11px Space Mono';sctx.fillStyle='#8892b0';
+  sctx.fillText('v (ms⁻¹)',ox+5,12);
+  sctx.fillText('t (s)',W-35,oy-8);
+
+  const s=u*t+0.5*a*t*t;
+  document.getElementById('suvatInfo').textContent=
+    `v(${t}) = ${u} + ${a}×${t} = ${vEnd.toFixed(2)} ms⁻¹   |   s = ut + ½at² = ${s.toFixed(2)} m (shaded area)`;
+}
+['su','sa','st'].forEach(id=>document.getElementById(id).addEventListener('input',drawSuvat));
+drawSuvat();
+</script>
+</body>
+</html>

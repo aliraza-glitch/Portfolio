@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maths Visualizer — Ali Raza</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="math.css">
+<style>
+  .hero {
+    padding: 5rem 2rem 4rem;
+    background: linear-gradient(180deg,#111827 0%,var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .hero-inner { max-width: 680px; margin: 0 auto; }
+  .hero .eyebrow { justify-content: center; }
+  .hero h1 { font-size: clamp(2.5rem,7vw,5rem); font-weight:700; letter-spacing:-0.03em; line-height:1; margin-bottom:1rem; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { color: var(--muted2); font-size: 1.05rem; max-width: 500px; margin: 0 auto 2rem; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+  .hero-tags span {
+    font-family: 'Space Mono', monospace; font-size: 0.68rem;
+    padding: 0.3rem 0.8rem; border: 1px solid var(--border);
+    color: var(--muted2); border-radius: 3px; letter-spacing: 0.06em;
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 1.25rem 2rem 0;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">∑ Maths Visualizer</div>
+  <div class="nav-links">
+    <a href="math-home.html" class="active">Home</a>
+    <a href="math-algebra.html">Algebra</a>
+    <a href="math-functions.html">Functions</a>
+    <a href="math-trig.html">Trigonometry</a>
+    <a href="math-calculus.html">Calculus</a>
+    <a href="math-stats.html">Statistics</a>
+    <a href="math-mechanics.html">Mechanics</a>
+  </div>
+  <a href="index.html" class="back-home">← Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">// CIE AS Level Mathematics · Interactive Reference</div>
+    <h1>Maths <span>Visualizer</span></h1>
+    <p>Interactive visualizations, formulas, and explanations for every AS Level Mathematics topic — all in one place.</p>
+    <div class="hero-tags">
+      <span>Pure Mathematics</span>
+      <span>Statistics</span>
+      <span>Mechanics</span>
+      <span>Interactive Graphs</span>
+      <span>Formula Cards</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-label">// Choose a topic to explore</div>
+<div class="topic-grid">
+
+  <a href="math-algebra.html" class="topic-card">
+    <div class="topic-card-icon">🔢</div>
+    <div class="topic-card-num">TOPIC 01</div>
+    <h3>Algebra</h3>
+    <p>Quadratics, polynomials, factor theorem, binomial expansion, surds, inequalities and logarithms.</p>
+    <div class="topic-card-link">Explore →</div>
+  </a>
+
+  <a href="math-functions.html" class="topic-card">
+    <div class="topic-card-icon">📈</div>
+    <div class="topic-card-num">TOPIC 02</div>
+    <h3>Functions &amp; Graphs</h3>
+    <p>Domain &amp; range, composite and inverse functions, transformations, graph sketching.</p>
+    <div class="topic-card-link">Explore →</div>
+  </a>
+
+  <a href="math-trig.html" class="topic-card">
+    <div class="topic-card-icon">📐</div>
+    <div class="topic-card-num">TOPIC 03</div>
+    <h3>Trigonometry</h3>
+    <p>Trig ratios, identities, sine &amp; cosine rules, trig equations, radian measure, graphs.</p>
+    <div class="topic-card-link">Explore →</div>
+  </a>
+
+  <a href="math-calculus.html" class="topic-card">
+    <div class="topic-card-icon">∫</div>
+    <div class="topic-card-num">TOPIC 04</div>
+    <h3>Calculus</h3>
+    <p>Differentiation from first principles, rules, stationary points, integration and area under curves.</p>
+    <div class="topic-card-link">Explore →</div>
+  </a>
+
+  <a href="math-stats.html" class="topic-card">
+    <div class="topic-card-icon">📊</div>
+    <div class="topic-card-num">TOPIC 05</div>
+    <h3>Statistics &amp; Probability</h3>
+    <p>Measures of central tendency, spread, probability, permutations, combinations, distributions.</p>
+    <div class="topic-card-link">Explore →</div>
+  </a>
+
+  <a href="math-mechanics.html" class="topic-card">
+    <div class="topic-card-icon">⚙️</div>
+    <div class="topic-card-num">TOPIC 06</div>
+    <h3>Mechanics</h3>
+    <p>Kinematics, vectors, Newton's laws in mathematical form, moments and equilibrium.</p>
+    <div class="topic-card-link">Explore →</div>
+  </a>
+
+</div>
+
+<footer style="margin-top:3rem">
+  <span>Ali Raza — AS Level Maths Visualizer</span>
+  <span>Built with HTML, CSS &amp; JavaScript</span>
+</footer>
+</body>
+</html>

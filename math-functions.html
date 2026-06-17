@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Functions — Maths Visualizer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="math.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo">∑ Maths Visualizer</div>
+  <div class="nav-links">
+    <a href="math-home.html">Home</a><a href="math-algebra.html">Algebra</a>
+    <a href="math-functions.html" class="active">Functions</a><a href="math-trig.html">Trigonometry</a>
+    <a href="math-calculus.html">Calculus</a><a href="math-stats.html">Statistics</a><a href="math-mechanics.html">Mechanics</a>
+  </div>
+  <a href="math-home.html" class="back-home">← Home</a>
+</nav>
+<div class="page-header"><div class="page-header-inner">
+  <div class="eyebrow">// Topic 02 — Pure Mathematics</div>
+  <h1><span>Functions</span> &amp; Graphs</h1>
+  <p>Domain, range, composite and inverse functions, transformations, and interactive graph explorer.</p>
+</div></div>
+<main>
+
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2>Functions — Core Concepts</h2></div>
+    <div class="content-block">
+      <div class="block-title">Definitions</div>
+      <div class="formula-grid">
+        <div class="formula-card key wide"><div class="f-eq">A function maps each input x in the domain to exactly one output y in the range</div><div class="f-name">Function Definition</div><div class="f-note">Use vertical line test: if any vertical line crosses graph more than once, it's not a function</div></div>
+        <div class="formula-card"><div class="f-eq">Domain — set of all valid inputs (x values)</div><div class="f-name">Domain</div><div class="f-note">Watch out for: division by zero, even roots of negatives, log of non-positive numbers</div></div>
+        <div class="formula-card"><div class="f-eq">Range — set of all possible outputs (y values)</div><div class="f-name">Range</div><div class="f-note">Find by considering shape of graph and any restrictions</div></div>
+        <div class="formula-card"><div class="f-eq">fg(x) = f(g(x))</div><div class="f-name">Composite Function</div><div class="f-note">Apply g first, then apply f to the result. Domain of fg = domain of g restricted so g(x) is in domain of f</div></div>
+        <div class="formula-card"><div class="f-eq">ff⁻¹(x) = f⁻¹f(x) = x</div><div class="f-name">Inverse Function</div><div class="f-note">Swap x and y, then rearrange to find f⁻¹(x). Domain of f⁻¹ = range of f.</div></div>
+        <div class="formula-card wide"><div class="f-eq">Graph of f⁻¹(x) is reflection of f(x) in the line y = x</div><div class="f-name">Inverse — graphical meaning</div><div class="f-note">f must be one-to-one (bijective) to have an inverse. If not, restrict the domain first.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2>Graph Transformations</h2></div>
+    <div class="content-block">
+      <div class="block-title">Transformation Rules</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">f(x) + a</div><div class="f-name">Vertical Translation</div><div class="f-note">Shift UP by a (or down if a < 0). Affects y-values.</div></div>
+        <div class="formula-card key"><div class="f-eq">f(x + a)</div><div class="f-name">Horizontal Translation</div><div class="f-note">Shift LEFT by a (counterintuitive). Affects x-values.</div></div>
+        <div class="formula-card key"><div class="f-eq">a·f(x)</div><div class="f-name">Vertical Stretch</div><div class="f-note">Scale factor a in y-direction. Multiply all y-values by a.</div></div>
+        <div class="formula-card key"><div class="f-eq">f(ax)</div><div class="f-name">Horizontal Stretch</div><div class="f-note">Scale factor 1/a in x-direction. Divide all x-values by a.</div></div>
+        <div class="formula-card"><div class="f-eq">−f(x)</div><div class="f-name">Reflection in x-axis</div><div class="f-note">Negate all y-values</div></div>
+        <div class="formula-card"><div class="f-eq">f(−x)</div><div class="f-name">Reflection in y-axis</div><div class="f-note">Negate all x-values</div></div>
+        <div class="formula-card"><div class="f-eq">|f(x)|</div><div class="f-name">Modulus of function</div><div class="f-note">Reflect any part below x-axis to above it</div></div>
+        <div class="formula-card"><div class="f-eq">f(|x|)</div><div class="f-name">Modulus of input</div><div class="f-note">Reflect right half of graph to replace left half</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Interactive — Transformation Explorer</div>
+      <div class="viz-wrap">
+        <canvas id="fnCanvas" height="300"></canvas>
+        <div class="viz-controls">
+          <label>a (vert stretch): <input type="range" id="fa" min="-3" max="3" step="0.5" value="1"><span id="faV">1</span></label>
+          <label>h (horiz shift): <input type="range" id="fh" min="-4" max="4" step="0.5" value="0"><span id="fhV">0</span></label>
+          <label>k (vert shift): <input type="range" id="fk" min="-4" max="4" step="0.5" value="0"><span id="fkV">0</span></label>
+        </div>
+        <div id="fnInfo" style="margin-top:0.6rem;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--muted2)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2>Types of Functions &amp; Graphs</h2></div>
+    <div class="content-block">
+      <div class="block-title">Common Function Types</div>
+      <div class="info-grid">
+        <div class="info-card purple-border"><h4>Linear: y = mx + c</h4><p>Straight line. Gradient m, y-intercept c. Domain: ℝ, Range: ℝ</p></div>
+        <div class="info-card blue-border"><h4>Quadratic: y = ax² + bx + c</h4><p>Parabola. a > 0: U-shape (min). a < 0: ∩-shape (max). Axis of symmetry x = −b/2a</p></div>
+        <div class="info-card green-border"><h4>Cubic: y = ax³ + ...</h4><p>S-shaped curve. Has up to 2 turning points, up to 3 real roots.</p></div>
+        <div class="info-card orange-border"><h4>Reciprocal: y = k/x</h4><p>Hyperbola. Asymptotes at x=0 and y=0. Domain: x≠0, Range: y≠0</p></div>
+        <div class="info-card pink-border"><h4>Exponential: y = aˣ</h4><p>Always positive. y-intercept at (0,1). Asymptote y=0. Domain: ℝ, Range: y>0</p></div>
+        <div class="info-card purple-border"><h4>Logarithm: y = log x</h4><p>x-intercept at (1,0). Asymptote x=0. Domain: x>0, Range: ℝ</p></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<footer>
+  <span>Ali Raza — Functions</span>
+  <span><a href="math-trig.html" style="color:var(--accent)">Next: Trigonometry →</a></span>
+</footer>
+<script>
+const fc=document.getElementById('fnCanvas');
+const fctx=fc.getContext('2d');
+function resizeFC(){fc.width=fc.offsetWidth;fc.height=300;}
+window.addEventListener('resize',()=>{resizeFC();drawFN();});
+resizeFC();
+function drawFN(){
+  const a=parseFloat(document.getElementById('fa').value);
+  const h=parseFloat(document.getElementById('fh').value);
+  const k=parseFloat(document.getElementById('fk').value);
+  document.getElementById('faV').textContent=a;
+  document.getElementById('fhV').textContent=h;
+  document.getElementById('fkV').textContent=k;
+  const W=fc.width,H=300,ox=W/2,oy=H/2,sc=40;
+  fctx.clearRect(0,0,W,H);
+  // Grid
+  fctx.strokeStyle='#2a3249';fctx.lineWidth=1;
+  for(let x=-6;x<=6;x++){fctx.beginPath();fctx.moveTo(ox+x*sc,0);fctx.lineTo(ox+x*sc,H);fctx.stroke();}
+  for(let y=-4;y<=4;y++){fctx.beginPath();fctx.moveTo(0,oy+y*sc);fctx.lineTo(W,oy+y*sc);fctx.stroke();}
+  fctx.strokeStyle='#4a5568';fctx.lineWidth=1.5;
+  fctx.beginPath();fctx.moveTo(0,oy);fctx.lineTo(W,oy);fctx.stroke();
+  fctx.beginPath();fctx.moveTo(ox,0);fctx.lineTo(ox,H);fctx.stroke();
+  // Original f(x)=x² (faint)
+  fctx.beginPath();fctx.strokeStyle='rgba(107,122,154,0.4)';fctx.lineWidth=1.5;
+  let first=true;
+  for(let px=0;px<W;px++){
+    const x=(px-ox)/sc; const y=x*x;
+    const py=oy-y*sc;
+    if(py<-200||py>H+200){first=true;continue;}
+    first?fctx.moveTo(px,py):fctx.lineTo(px,py);first=false;
+  }
+  fctx.stroke();
+  // Transformed a·f(x−h)+k
+  fctx.beginPath();fctx.strokeStyle='#a78bfa';fctx.lineWidth=2.5;
+  first=true;
+  for(let px=0;px<W;px++){
+    const x=(px-ox)/sc;
+    const y=a*(x-h)*(x-h)+k;
+    const py=oy-y*sc;
+    if(py<-200||py>H+200){first=true;continue;}
+    first?fctx.moveTo(px,py):fctx.lineTo(px,py);first=false;
+  }
+  fctx.stroke();
+  // Vertex dot
+  const vpx=ox+h*sc, vpy=oy-k*sc;
+  fctx.fillStyle='#f97316';fctx.beginPath();fctx.arc(vpx,vpy,5,0,Math.PI*2);fctx.fill();
+  document.getElementById('fnInfo').textContent=
+    `y = ${a}(x − ${h})² + ${k}   |   Vertex: (${h}, ${k})   |   Grey = original y = x²`;
+}
+['fa','fh','fk'].forEach(id=>document.getElementById(id).addEventListener('input',drawFN));
+drawFN();
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculus — Maths Visualizer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="math.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo">∑ Maths Visualizer</div>
+  <div class="nav-links">
+    <a href="math-home.html">Home</a><a href="math-algebra.html">Algebra</a>
+    <a href="math-functions.html">Functions</a><a href="math-trig.html">Trigonometry</a>
+    <a href="math-calculus.html" class="active">Calculus</a><a href="math-stats.html">Statistics</a><a href="math-mechanics.html">Mechanics</a>
+  </div>
+  <a href="math-home.html" class="back-home">← Home</a>
+</nav>
+<div class="page-header"><div class="page-header-inner">
+  <div class="eyebrow">// Topic 04 — Pure Mathematics</div>
+  <h1><span>Calculus</span></h1>
+  <p>Differentiation and integration — rules, applications, and interactive visualizers for tangents and areas.</p>
+</div></div>
+<main>
+
+  <!-- DIFFERENTIATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2>Differentiation</h2></div>
+    <div class="content-block">
+      <div class="block-title">First Principles</div>
+      <div class="formula-grid">
+        <div class="formula-card key wide"><div class="f-eq">f'(x) = lim[h→0] (f(x+h) − f(x)) / h</div><div class="f-name">Definition from First Principles</div><div class="f-note">The gradient of the tangent at a point — the fundamental definition of derivative</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Standard Derivatives</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">d/dx [xⁿ] = nxⁿ⁻¹</div><div class="f-name">Power Rule</div><div class="f-note">Bring down the power, reduce power by 1. Works for any n.</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [c] = 0</div><div class="f-name">Constant</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [eˣ] = eˣ</div><div class="f-name">Exponential</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [ln x] = 1/x</div><div class="f-name">Natural Log</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [sin x] = cos x</div><div class="f-name">Sine</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [cos x] = −sin x</div><div class="f-name">Cosine</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [tan x] = sec²x</div><div class="f-name">Tangent</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [aˣ] = aˣ ln a</div><div class="f-name">General Exponential</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Differentiation Rules</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">d/dx [uv] = u'v + uv'</div><div class="f-name">Product Rule</div><div class="f-note">Use when two functions are multiplied together</div></div>
+        <div class="formula-card key"><div class="f-eq">d/dx [u/v] = (u'v − uv') / v²</div><div class="f-name">Quotient Rule</div><div class="f-note">Use when one function is divided by another</div></div>
+        <div class="formula-card key"><div class="f-eq">dy/dx = dy/du × du/dx</div><div class="f-name">Chain Rule</div><div class="f-note">For composite functions. "Differentiate outside × inside derivative"</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [f(ax+b)] = a·f'(ax+b)</div><div class="f-name">Chain Rule (linear inside)</div><div class="f-note">Quick version for linear inner functions</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [cf(x)] = c·f'(x)</div><div class="f-name">Scalar Multiple</div></div>
+        <div class="formula-card"><div class="f-eq">d/dx [f ± g] = f' ± g'</div><div class="f-name">Sum/Difference Rule</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Applications of Differentiation</div>
+      <div class="formula-grid">
+        <div class="formula-card wide"><div class="f-eq">dy/dx = 0  →  stationary point. d²y/dx² &gt; 0: min · &lt; 0: max · = 0: check further</div><div class="f-name">Stationary Points</div><div class="f-note">Second derivative test. If d²y/dx² = 0, use sign change of dy/dx to determine nature.</div></div>
+        <div class="formula-card"><div class="f-eq">Gradient of tangent at x=a: m = f'(a)</div><div class="f-name">Tangent Line</div><div class="f-note">Equation: y − f(a) = f'(a)(x − a)</div></div>
+        <div class="formula-card"><div class="f-eq">Gradient of normal = −1 / f'(a)</div><div class="f-name">Normal Line</div><div class="f-note">Normal is perpendicular to tangent</div></div>
+        <div class="formula-card"><div class="f-eq">Rate of change = dy/dx at that instant</div><div class="f-name">Rates of Change</div></div>
+        <div class="formula-card"><div class="f-eq">v = ds/dt · a = dv/dt = d²s/dt²</div><div class="f-name">Kinematics via Calculus</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Interactive — Tangent Line Explorer</div>
+      <div class="viz-wrap">
+        <canvas id="calcCanvas" height="300"></canvas>
+        <div class="viz-controls">
+          <label>x position: <input type="range" id="cx" min="-4" max="4" step="0.1" value="1"><span id="cxV">1</span></label>
+          <label>curve: <select id="curveType" style="background:var(--surface2);color:var(--white);border:1px solid var(--border);padding:0.3rem;border-radius:3px;font-size:0.8rem">
+            <option value="cubic">x³ − 3x</option>
+            <option value="quad">x²</option>
+            <option value="sin">sin(x)</option>
+          </select></label>
+        </div>
+        <div id="calcInfo" style="margin-top:0.75rem;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--muted2)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTEGRATION -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2>Integration</h2></div>
+    <div class="content-block">
+      <div class="block-title">Standard Integrals</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">∫ xⁿ dx = xⁿ⁺¹/(n+1) + C</div><div class="f-name">Power Rule (n ≠ −1)</div><div class="f-note">Add 1 to power, divide by new power, add constant C</div></div>
+        <div class="formula-card"><div class="f-eq">∫ 1/x dx = ln|x| + C</div><div class="f-name">Reciprocal</div></div>
+        <div class="formula-card"><div class="f-eq">∫ eˣ dx = eˣ + C</div><div class="f-name">Exponential</div></div>
+        <div class="formula-card"><div class="f-eq">∫ sin x dx = −cos x + C</div><div class="f-name">Sine</div></div>
+        <div class="formula-card"><div class="f-eq">∫ cos x dx = sin x + C</div><div class="f-name">Cosine</div></div>
+        <div class="formula-card"><div class="f-eq">∫ sec²x dx = tan x + C</div><div class="f-name">Secant squared</div></div>
+        <div class="formula-card"><div class="f-eq">∫ k dx = kx + C</div><div class="f-name">Constant</div></div>
+        <div class="formula-card"><div class="f-eq">∫ (ax+b)ⁿ dx = (ax+b)ⁿ⁺¹ / (a(n+1)) + C</div><div class="f-name">Linear composite</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Definite Integrals &amp; Area</div>
+      <div class="formula-grid">
+        <div class="formula-card key wide"><div class="f-eq">∫[a to b] f(x) dx = F(b) − F(a)  where F'(x) = f(x)</div><div class="f-name">Fundamental Theorem of Calculus</div><div class="f-note">F(x) is the antiderivative. This gives the signed area under f(x) between x=a and x=b.</div></div>
+        <div class="formula-card"><div class="f-eq">Area = |∫[a to b] f(x) dx|</div><div class="f-name">Area under curve</div><div class="f-note">If curve goes below x-axis, integrate separately and add magnitudes</div></div>
+        <div class="formula-card"><div class="f-eq">Area between curves = ∫[a to b] (f(x) − g(x)) dx</div><div class="f-name">Area between two curves</div><div class="f-note">f(x) is the upper curve, g(x) is lower. Find intersections first (set f = g).</div></div>
+        <div class="formula-card"><div class="f-eq">∫ by substitution: let u = g(x), du = g'(x)dx</div><div class="f-name">Integration by Substitution</div><div class="f-note">Change limits too if definite. Replace all x terms with u.</div></div>
+        <div class="formula-card"><div class="f-eq">∫ u dv = uv − ∫ v du</div><div class="f-name">Integration by Parts</div><div class="f-note">LIATE rule: choose u as Logarithm, Inverse, Algebraic, Trig, Exponential (in that preference)</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Interactive — Area Under Curve</div>
+      <div class="viz-wrap">
+        <canvas id="intCanvas" height="300"></canvas>
+        <div class="viz-controls">
+          <label>Lower limit a: <input type="range" id="ia" min="-3" max="2" step="0.5" value="0"><span id="iaV">0</span></label>
+          <label>Upper limit b: <input type="range" id="ib" min="-2" max="4" step="0.5" value="2"><span id="ibV">2</span></label>
+        </div>
+        <div id="intInfo" style="margin-top:0.75rem;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--muted2)"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<footer>
+  <span>Ali Raza — Calculus</span>
+  <span><a href="math-stats.html" style="color:var(--accent)">Next: Statistics →</a></span>
+</footer>
+<script>
+// ── Tangent Explorer ──
+const cc=document.getElementById('calcCanvas');
+const cctx=cc.getContext('2d');
+function resizeCC(){cc.width=cc.offsetWidth;cc.height=300;}
+window.addEventListener('resize',()=>{resizeCC();drawCC();});
+resizeCC();
+function getCurve(type,x){
+  if(type==='cubic') return {y:x*x*x-3*x, dy:3*x*x-3};
+  if(type==='quad')  return {y:x*x, dy:2*x};
+  return {y:Math.sin(x), dy:Math.cos(x)};
+}
+function drawCC(){
+  const xVal=parseFloat(document.getElementById('cx').value);
+  const type=document.getElementById('curveType').value;
+  document.getElementById('cxV').textContent=xVal.toFixed(1);
+  const W=cc.width,H=300,ox=W/2,oy=H/2,sc=35;
+  cctx.clearRect(0,0,W,H);
+  // Grid
+  cctx.strokeStyle='#2a3249';cctx.lineWidth=1;
+  for(let x=-8;x<=8;x++){cctx.beginPath();cctx.moveTo(ox+x*sc,0);cctx.lineTo(ox+x*sc,H);cctx.stroke();}
+  for(let y=-4;y<=4;y++){cctx.beginPath();cctx.moveTo(0,oy+y*sc);cctx.lineTo(W,oy+y*sc);cctx.stroke();}
+  cctx.strokeStyle='#4a5568';cctx.lineWidth=1.5;
+  cctx.beginPath();cctx.moveTo(0,oy);cctx.lineTo(W,oy);cctx.stroke();
+  cctx.beginPath();cctx.moveTo(ox,0);cctx.lineTo(ox,H);cctx.stroke();
+  // Curve
+  cctx.beginPath();cctx.strokeStyle='#a78bfa';cctx.lineWidth=2.5;
+  let first=true;
+  for(let px=0;px<W;px++){
+    const x=(px-ox)/sc;
+    const {y}=getCurve(type,x);
+    const py=oy-y*sc;
+    if(py<-200||py>H+200){first=true;continue;}
+    first?cctx.moveTo(px,py):cctx.lineTo(px,py);first=false;
+  }
+  cctx.stroke();
+  // Tangent
+  const {y:y0,dy:m}=getCurve(type,xVal);
+  const px0=ox+xVal*sc,py0=oy-y0*sc;
+  cctx.strokeStyle='#f97316';cctx.lineWidth=2;cctx.setLineDash([6,4]);
+  const x1=-6,x2=6;
+  cctx.beginPath();
+  cctx.moveTo(ox+x1*sc,oy-(y0+m*(x1-xVal))*sc);
+  cctx.lineTo(ox+x2*sc,oy-(y0+m*(x2-xVal))*sc);
+  cctx.stroke();cctx.setLineDash([]);
+  // Point
+  cctx.fillStyle='#f97316';cctx.beginPath();cctx.arc(px0,py0,5,0,Math.PI*2);cctx.fill();
+  document.getElementById('calcInfo').textContent=
+    `x = ${xVal.toFixed(2)}   |   f(x) = ${y0.toFixed(3)}   |   f'(x) = ${m.toFixed(3)}   |   Tangent: y − ${y0.toFixed(2)} = ${m.toFixed(2)}(x − ${xVal.toFixed(2)})`;
+}
+['cx'].forEach(id=>document.getElementById(id).addEventListener('input',drawCC));
+document.getElementById('curveType').addEventListener('change',drawCC);
+drawCC();
+
+// ── Area Visualizer ──
+const ic=document.getElementById('intCanvas');
+const ictx=ic.getContext('2d');
+function resizeIC(){ic.width=ic.offsetWidth;ic.height=300;}
+window.addEventListener('resize',()=>{resizeIC();drawIC();});
+resizeIC();
+function fint(x){return x*x*x/3-x*x/2-x;}// integral of x²-x-1? let's use f(x)=x²-x
+function f2(x){return x*x-x;}
+function drawIC(){
+  let a=parseFloat(document.getElementById('ia').value);
+  let b=parseFloat(document.getElementById('ib').value);
+  document.getElementById('iaV').textContent=a.toFixed(1);
+  document.getElementById('ibV').textContent=b.toFixed(1);
+  if(a>b){[a,b]=[b,a];}
+  const W=ic.width,H=300,ox=W/2,oy=H*0.65,sc=50;
+  ictx.clearRect(0,0,W,H);
+  // Grid
+  ictx.strokeStyle='#2a3249';ictx.lineWidth=1;
+  for(let x=-5;x<=5;x++){ictx.beginPath();ictx.moveTo(ox+x*sc,0);ictx.lineTo(ox+x*sc,H);ictx.stroke();}
+  for(let y=-2;y<=3;y++){ictx.beginPath();ictx.moveTo(0,oy+y*sc);ictx.lineTo(W,oy+y*sc);ictx.stroke();}
+  ictx.strokeStyle='#4a5568';ictx.lineWidth=1.5;
+  ictx.beginPath();ictx.moveTo(0,oy);ictx.lineTo(W,oy);ictx.stroke();
+  ictx.beginPath();ictx.moveTo(ox,0);ictx.lineTo(ox,H);ictx.stroke();
+  // Shaded area
+  ictx.fillStyle='rgba(167,139,250,0.18)';
+  ictx.beginPath();
+  const steps=200;
+  ictx.moveTo(ox+a*sc,oy);
+  for(let i=0;i<=steps;i++){
+    const x=a+(b-a)*i/steps;
+    ictx.lineTo(ox+x*sc,oy-f2(x)*sc);
+  }
+  ictx.lineTo(ox+b*sc,oy);ictx.closePath();ictx.fill();
+  // Curve
+  ictx.beginPath();ictx.strokeStyle='#a78bfa';ictx.lineWidth=2.5;
+  let first=true;
+  for(let px=0;px<W;px++){
+    const x=(px-ox)/sc;
+    const y=f2(x);
+    const py=oy-y*sc;
+    if(py<-100||py>H+100){first=true;continue;}
+    first?ictx.moveTo(px,py):ictx.lineTo(px,py);first=false;
+  }
+  ictx.stroke();
+  // Limits
+  ictx.strokeStyle='#f97316';ictx.lineWidth=1.5;ictx.setLineDash([4,3]);
+  ictx.beginPath();ictx.moveTo(ox+a*sc,0);ictx.lineTo(ox+a*sc,H);ictx.stroke();
+  ictx.beginPath();ictx.moveTo(ox+b*sc,0);ictx.lineTo(ox+b*sc,H);ictx.stroke();
+  ictx.setLineDash([]);
+  // Numerical integration
+  let area=0;const n=1000;
+  for(let i=0;i<n;i++){const x=a+(b-a)*(i+0.5)/n;area+=f2(x)*(b-a)/n;}
+  document.getElementById('intInfo').textContent=
+    `f(x) = x² − x   |   ∫[${a.toFixed(1)} to ${b.toFixed(1)}] f(x) dx ≈ ${area.toFixed(4)}   |   Exact = [x³/3 − x²/2] from ${a.toFixed(1)} to ${b.toFixed(1)}`;
+}
+['ia','ib'].forEach(id=>document.getElementById(id).addEventListener('input',drawIC));
+drawIC();
+</script>
+</body>
+</html>

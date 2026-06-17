@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trigonometry — Maths Visualizer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="math.css">
+</head>
+<body>
+<nav>
+  <div class="nav-logo">∑ Maths Visualizer</div>
+  <div class="nav-links">
+    <a href="math-home.html">Home</a><a href="math-algebra.html">Algebra</a>
+    <a href="math-functions.html">Functions</a><a href="math-trig.html" class="active">Trigonometry</a>
+    <a href="math-calculus.html">Calculus</a><a href="math-stats.html">Statistics</a><a href="math-mechanics.html">Mechanics</a>
+  </div>
+  <a href="math-home.html" class="back-home">← Home</a>
+</nav>
+<div class="page-header"><div class="page-header-inner">
+  <div class="eyebrow">// Topic 03 — Pure Mathematics</div>
+  <h1><span>Trigonometry</span></h1>
+  <p>Trig ratios, identities, sine/cosine rules, radian measure, and trig graphs — with an interactive unit circle.</p>
+</div></div>
+<main>
+
+  <!-- RATIOS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">01</span><h2>Trig Ratios &amp; SOHCAHTOA</h2></div>
+    <div class="content-block">
+      <div class="block-title">Definitions</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">sin θ = opp / hyp</div><div class="f-name">Sine</div></div>
+        <div class="formula-card key"><div class="f-eq">cos θ = adj / hyp</div><div class="f-name">Cosine</div></div>
+        <div class="formula-card key"><div class="f-eq">tan θ = opp / adj = sin/cos</div><div class="f-name">Tangent</div></div>
+        <div class="formula-card"><div class="f-eq">cosec θ = 1 / sin θ</div><div class="f-name">Cosecant</div></div>
+        <div class="formula-card"><div class="f-eq">sec θ = 1 / cos θ</div><div class="f-name">Secant</div></div>
+        <div class="formula-card"><div class="f-eq">cot θ = 1 / tan θ = cos/sin</div><div class="f-name">Cotangent</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Exact Values</div>
+      <div class="formula-grid">
+        <div class="formula-card"><div class="f-eq">sin 0° = 0</div><div class="f-note">cos 0° = 1 · tan 0° = 0</div></div>
+        <div class="formula-card"><div class="f-eq">sin 30° = ½</div><div class="f-note">cos 30° = √3/2 · tan 30° = 1/√3</div></div>
+        <div class="formula-card"><div class="f-eq">sin 45° = √2/2</div><div class="f-note">cos 45° = √2/2 · tan 45° = 1</div></div>
+        <div class="formula-card"><div class="f-eq">sin 60° = √3/2</div><div class="f-note">cos 60° = ½ · tan 60° = √3</div></div>
+        <div class="formula-card"><div class="f-eq">sin 90° = 1</div><div class="f-note">cos 90° = 0 · tan 90° = undefined</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIT CIRCLE -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">02</span><h2>Unit Circle — Interactive</h2></div>
+    <div class="content-block">
+      <div class="block-title">Drag the angle slider to explore sin, cos, and tan</div>
+      <div class="viz-wrap">
+        <canvas id="unitCircle" height="340"></canvas>
+        <div class="viz-controls">
+          <label>θ (degrees): <input type="range" id="angle" min="0" max="360" step="1" value="45"><span id="angleV">45°</span></label>
+        </div>
+        <div id="ucInfo" style="margin-top:0.75rem;font-family:'Space Mono',monospace;font-size:0.78rem;color:var(--muted2);line-height:1.8"></div>
+      </div>
+      <div class="info-grid" style="margin-top:1rem">
+        <div class="info-card purple-border"><h4>CAST Diagram</h4>
+          <p><strong style="color:#34d399">A</strong>ll positive (0°–90°) · <strong style="color:#60a5fa">S</strong>ine positive (90°–180°) · <strong style="color:#f97316">T</strong>an positive (180°–270°) · <strong style="color:#f472b6">C</strong>os positive (270°–360°)</p>
+        </div>
+        <div class="info-card blue-border"><h4>Quadrant Signs</h4>
+          <ul><li>Q1 (0–90°): sin+, cos+, tan+</li><li>Q2 (90–180°): sin+, cos−, tan−</li><li>Q3 (180–270°): sin−, cos−, tan+</li><li>Q4 (270–360°): sin−, cos+, tan−</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDENTITIES -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">03</span><h2>Trig Identities</h2></div>
+    <div class="content-block">
+      <div class="block-title">Pythagorean &amp; Quotient Identities</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">sin²θ + cos²θ = 1</div><div class="f-name">Pythagorean Identity</div><div class="f-note">Also: sin²θ = 1 − cos²θ and cos²θ = 1 − sin²θ</div></div>
+        <div class="formula-card key"><div class="f-eq">1 + tan²θ = sec²θ</div><div class="f-name">Tangent-Secant Identity</div><div class="f-note">Derived by dividing Pythagorean identity by cos²θ</div></div>
+        <div class="formula-card key"><div class="f-eq">1 + cot²θ = cosec²θ</div><div class="f-name">Cotangent-Cosecant Identity</div><div class="f-note">Derived by dividing Pythagorean identity by sin²θ</div></div>
+        <div class="formula-card"><div class="f-eq">tan θ = sin θ / cos θ</div><div class="f-name">Quotient Identity</div></div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-title">Double Angle &amp; Addition Formulas</div>
+      <div class="formula-grid">
+        <div class="formula-card"><div class="f-eq">sin(A ± B) = sinA cosB ± cosA sinB</div><div class="f-name">Addition Formula (sin)</div></div>
+        <div class="formula-card"><div class="f-eq">cos(A ± B) = cosA cosB ∓ sinA sinB</div><div class="f-name">Addition Formula (cos)</div></div>
+        <div class="formula-card"><div class="f-eq">sin 2θ = 2 sinθ cosθ</div><div class="f-name">Double Angle (sin)</div></div>
+        <div class="formula-card"><div class="f-eq">cos 2θ = cos²θ − sin²θ</div><div class="f-name">Double Angle (cos) — form 1</div><div class="f-note">Also: = 2cos²θ − 1 = 1 − 2sin²θ</div></div>
+        <div class="formula-card"><div class="f-eq">tan(A ± B) = (tanA ± tanB) / (1 ∓ tanA tanB)</div><div class="f-name">Addition Formula (tan)</div></div>
+        <div class="formula-card"><div class="f-eq">tan 2θ = 2tanθ / (1 − tan²θ)</div><div class="f-name">Double Angle (tan)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SINE & COSINE RULES -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">04</span><h2>Sine &amp; Cosine Rules</h2></div>
+    <div class="content-block">
+      <div class="block-title">Formulas</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">a/sinA = b/sinB = c/sinC</div><div class="f-name">Sine Rule</div><div class="f-note">Use when: two angles + one side, or two sides + non-included angle (watch for ambiguous case)</div></div>
+        <div class="formula-card key"><div class="f-eq">a² = b² + c² − 2bc cosA</div><div class="f-name">Cosine Rule</div><div class="f-note">Use when: two sides + included angle, or all three sides. Rearrange: cosA = (b²+c²−a²)/(2bc)</div></div>
+        <div class="formula-card key"><div class="f-eq">Area = ½ ab sinC</div><div class="f-name">Area of Triangle</div><div class="f-note">C = included angle between sides a and b</div></div>
+        <div class="formula-card"><div class="f-eq">Area = ½ × base × height</div><div class="f-name">Area (right-angle case)</div></div>
+        <div class="formula-card"><div class="f-eq">Area = √[s(s−a)(s−b)(s−c)]</div><div class="f-name">Heron's Formula</div><div class="f-note">s = (a+b+c)/2 = semi-perimeter</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RADIANS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">05</span><h2>Radians &amp; Arc/Sector</h2></div>
+    <div class="content-block">
+      <div class="block-title">Radian Measure</div>
+      <div class="formula-grid">
+        <div class="formula-card key"><div class="f-eq">π radians = 180°</div><div class="f-name">Conversion</div><div class="f-note">Degrees → Radians: × π/180 · Radians → Degrees: × 180/π</div></div>
+        <div class="formula-card key"><div class="f-eq">Arc length = rθ</div><div class="f-name">Arc Length</div><div class="f-note">θ must be in radians. r = radius.</div></div>
+        <div class="formula-card key"><div class="f-eq">Sector area = ½r²θ</div><div class="f-name">Area of Sector</div><div class="f-note">θ in radians</div></div>
+        <div class="formula-card"><div class="f-eq">Segment area = ½r²(θ − sinθ)</div><div class="f-name">Area of Segment</div><div class="f-note">Segment = sector − triangle</div></div>
+        <div class="formula-card"><div class="f-eq">2π rad = 360° · π rad = 180° · π/2 = 90°</div><div class="f-name">Common Conversions</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIG GRAPHS -->
+  <div class="section">
+    <div class="section-header"><span class="section-num">06</span><h2>Trig Graphs — Interactive</h2></div>
+    <div class="content-block">
+      <div class="block-title">y = A sin(Bx + C) + D</div>
+      <div class="viz-wrap">
+        <canvas id="trigGraph" height="280"></canvas>
+        <div class="viz-controls">
+          <label>A (amplitude): <input type="range" id="tA" min="0.5" max="3" step="0.5" value="1"><span id="tAV">1</span></label>
+          <label>B (frequency): <input type="range" id="tB" min="0.5" max="4" step="0.5" value="1"><span id="tBV">1</span></label>
+          <label>C (phase): <input type="range" id="tC" min="-3" max="3" step="0.5" value="0"><span id="tCV">0</span></label>
+          <label>D (shift): <input type="range" id="tD" min="-2" max="2" step="0.5" value="0"><span id="tDV">0</span></label>
+        </div>
+        <div id="trigInfo" style="margin-top:0.6rem;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--muted2)"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+<footer>
+  <span>Ali Raza — Trigonometry</span>
+  <span><a href="math-calculus.html" style="color:var(--accent)">Next: Calculus →</a></span>
+</footer>
+<script>
+// ── Unit Circle ──
+const uc = document.getElementById('unitCircle');
+const uctx = uc.getContext('2d');
+function resizeUC(){uc.width=uc.offsetWidth;uc.height=340;}
+window.addEventListener('resize',()=>{resizeUC();drawUC();});
+resizeUC();
+function drawUC(){
+  const W=uc.width,H=340,cx=W/2,cy=H/2,r=Math.min(cx,cy)*0.72;
+  const deg=parseFloat(document.getElementById('angle').value);
+  const rad=deg*Math.PI/180;
+  document.getElementById('angleV').textContent=deg+'°';
+  uctx.clearRect(0,0,W,H);
+  // Grid lines
+  uctx.strokeStyle='#2a3249';uctx.lineWidth=1;
+  uctx.beginPath();uctx.moveTo(0,cy);uctx.lineTo(W,cy);uctx.stroke();
+  uctx.beginPath();uctx.moveTo(cx,0);uctx.lineTo(cx,H);uctx.stroke();
+  // Circle
+  uctx.strokeStyle='#4a5568';uctx.lineWidth=1.5;
+  uctx.beginPath();uctx.arc(cx,cy,r,0,Math.PI*2);uctx.stroke();
+  // Point
+  const px=cx+r*Math.cos(-rad),py=cy+r*Math.sin(-rad);
+  // Radius line
+  uctx.strokeStyle='#a78bfa';uctx.lineWidth=2;
+  uctx.beginPath();uctx.moveTo(cx,cy);uctx.lineTo(px,py);uctx.stroke();
+  // cos line (horizontal)
+  uctx.strokeStyle='#60a5fa';uctx.lineWidth=2;uctx.setLineDash([4,3]);
+  uctx.beginPath();uctx.moveTo(cx,cy);uctx.lineTo(px,cy);uctx.stroke();
+  // sin line (vertical)
+  uctx.strokeStyle='#34d399';uctx.lineWidth=2;
+  uctx.beginPath();uctx.moveTo(px,cy);uctx.lineTo(px,py);uctx.stroke();
+  uctx.setLineDash([]);
+  // Point dot
+  uctx.fillStyle='#f97316';uctx.beginPath();uctx.arc(px,py,6,0,Math.PI*2);uctx.fill();
+  // Labels
+  uctx.font='12px Space Mono';
+  uctx.fillStyle='#60a5fa';uctx.fillText('cos θ',cx+(px-cx)/2-12,cy-8);
+  uctx.fillStyle='#34d399';uctx.fillText('sin θ',px+6,(cy+py)/2);
+  uctx.fillStyle='#e8eaf0';uctx.fillText('1',cx+r/2-4,cy-8);
+  // Angle arc
+  uctx.strokeStyle='#f97316';uctx.lineWidth=1.5;
+  uctx.beginPath();uctx.arc(cx,cy,28,0,-rad,rad<0);uctx.stroke();
+  const sv=Math.sin(rad),cv2=Math.cos(rad),tv=sv/cv2;
+  document.getElementById('ucInfo').innerHTML=
+    `θ = ${deg}° (${(rad).toFixed(3)} rad)&nbsp;&nbsp;&nbsp;`+
+    `<span style="color:#34d399">sin θ = ${sv.toFixed(4)}</span>&nbsp;&nbsp;&nbsp;`+
+    `<span style="color:#60a5fa">cos θ = ${cv2.toFixed(4)}</span>&nbsp;&nbsp;&nbsp;`+
+    `<span style="color:#f472b6">tan θ = ${deg===90||deg===270?'undefined':tv.toFixed(4)}</span>`;
+}
+document.getElementById('angle').addEventListener('input',drawUC);
+drawUC();
+
+// ── Trig Graph ──
+const tg=document.getElementById('trigGraph');
+const tctx=tg.getContext('2d');
+function resizeTG(){tg.width=tg.offsetWidth;tg.height=280;}
+window.addEventListener('resize',()=>{resizeTG();drawTG();});
+resizeTG();
+function drawTG(){
+  const A=parseFloat(document.getElementById('tA').value);
+  const B=parseFloat(document.getElementById('tB').value);
+  const C=parseFloat(document.getElementById('tC').value);
+  const D=parseFloat(document.getElementById('tD').value);
+  document.getElementById('tAV').textContent=A;
+  document.getElementById('tBV').textContent=B;
+  document.getElementById('tCV').textContent=C;
+  document.getElementById('tDV').textContent=D;
+  const W=tg.width,H=280,ox=60,oy=H/2,scaleX=W/14,scaleY=50;
+  tctx.clearRect(0,0,W,H);
+  // Grid
+  tctx.strokeStyle='#2a3249';tctx.lineWidth=1;
+  for(let x=-6;x<=6;x++){tctx.beginPath();tctx.moveTo(ox+x*scaleX,0);tctx.lineTo(ox+x*scaleX,H);tctx.stroke();}
+  for(let y=-3;y<=3;y++){tctx.beginPath();tctx.moveTo(0,oy+y*scaleY);tctx.lineTo(W,oy+y*scaleY);tctx.stroke();}
+  // Axes
+  tctx.strokeStyle='#4a5568';tctx.lineWidth=1.5;
+  tctx.beginPath();tctx.moveTo(0,oy);tctx.lineTo(W,oy);tctx.stroke();
+  tctx.beginPath();tctx.moveTo(ox,0);tctx.lineTo(ox,H);tctx.stroke();
+  // sin curve
+  tctx.beginPath();tctx.strokeStyle='#a78bfa';tctx.lineWidth=2.5;
+  for(let px=0;px<W;px++){
+    const x=(px-ox)/scaleX;
+    const y=A*Math.sin(B*x+C)+D;
+    const py=oy-y*scaleY;
+    px===0?tctx.moveTo(px,py):tctx.lineTo(px,py);
+  }
+  tctx.stroke();
+  document.getElementById('trigInfo').textContent=
+    `y = ${A} sin(${B}x + ${C}) + ${D}   |   Amplitude: ${A}   |   Period: ${(2*Math.PI/B).toFixed(2)} rad (${(360/B).toFixed(1)}°)   |   Phase shift: ${(-C/B).toFixed(2)} rad`;
+}
+['tA','tB','tC','tD'].forEach(id=>document.getElementById(id).addEventListener('input',drawTG));
+drawTG();
+</script>
+</body>
+</html>

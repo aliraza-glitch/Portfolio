@@ -1,0 +1,376 @@
+/* ========================
+   RESET & ROOT
+   ======================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:        #0f1117;
+  --surface:   #161b27;
+  --surface2:  #1c2333;
+  --border:    #2a3249;
+  --accent:    #f97316;
+  --accent-dim:#7c3d16;
+  --blue:      #60a5fa;
+  --green:     #34d399;
+  --purple:    #a78bfa;
+  --white:     #e8eaf0;
+  --muted:     #6b7a9a;
+  --muted2:    #8892b0;
+  --formula-bg:#111827;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========================
+   NAV
+   ======================== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(15, 17, 23, 0.97);
+  backdrop-filter: blur(16px);
+  gap: 1rem;
+}
+
+.back {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.back:hover { opacity: 0.7; }
+
+.nav-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.print-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1.25rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.print-btn:hover { background: #ea6d0c; }
+
+/* ========================
+   HEADER
+   ======================== */
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 2.5rem 3rem;
+  background: linear-gradient(180deg, #111827 0%, var(--bg) 100%);
+}
+
+.header-inner { max-width: 1100px; margin: 0 auto; }
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+header h1 span { color: var(--accent); }
+
+header > .header-inner > p {
+  color: var(--muted2);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Table of Contents */
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.toc a {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  color: var(--muted2);
+  border-radius: 3px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.toc a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(249,115,22,0.06);
+}
+
+/* ========================
+   MAIN LAYOUT
+   ======================== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem 5rem;
+}
+
+/* ========================
+   TOPIC SECTION
+   ======================== */
+.topic {
+  margin-top: 3rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.topic-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.1rem 1.75rem;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+
+.topic-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  background: rgba(249,115,22,0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+
+.topic-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* ========================
+   SUBTOPIC
+   ======================== */
+.subtopic {
+  padding: 1.75rem 1.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.subtopic:last-child { border-bottom: none; }
+
+.subtopic h3 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--blue);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.subtopic h3::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--blue);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ========================
+   FORMULA GRID
+   ======================== */
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+/* Wide cards span full width */
+.formula-card.wide {
+  grid-column: 1 / -1;
+}
+
+.formula-card {
+  background: var(--formula-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+.formula-card:hover {
+  border-color: rgba(249,115,22,0.4);
+  background: #131927;
+}
+
+/* Highlighted / key formula */
+.formula-card.highlight {
+  border-left: 3px solid var(--accent);
+  background: rgba(249,115,22,0.05);
+}
+.formula-card.highlight:hover {
+  background: rgba(249,115,22,0.09);
+}
+
+/* The actual formula text */
+.formula {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.05rem;
+  color: #f0f6ff;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+
+/* Label under formula */
+.formula-desc {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* Variable definitions */
+.variables {
+  font-size: 0.78rem;
+  color: var(--muted2);
+  line-height: 1.65;
+  border-top: 1px solid var(--border);
+  padding-top: 0.45rem;
+  margin-top: 0.2rem;
+}
+
+/* ========================
+   CONSTANTS TABLE
+   ======================== */
+#constants .formula-grid {
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+}
+
+#constants .formula-card {
+  background: rgba(96,165,250,0.04);
+  border-color: rgba(96,165,250,0.2);
+}
+#constants .formula {
+  color: var(--blue);
+}
+#constants .formula-desc {
+  color: var(--muted2);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.78rem;
+}
+
+/* ========================
+   FOOTER
+   ======================== */
+footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 2.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer span {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ========================
+   PRINT STYLES
+   ======================== */
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #fff; color: #111; font-size: 11pt; }
+  nav, .print-btn, .toc { display: none !important; }
+  header { background: #fff; padding: 1rem 1.5rem; border-bottom: 2px solid #d94f1e; }
+  header h1 { font-size: 22pt; }
+  header h1 span { color: #d94f1e; }
+  .eyebrow { color: #d94f1e; }
+  main { padding: 0 1.5rem 2rem; max-width: 100%; }
+  .topic { border: 1px solid #ccc; border-radius: 0; margin-top: 1.5rem; page-break-inside: avoid; }
+  .topic-header { background: #f5f5f5; border-bottom: 1px solid #ddd; }
+  .topic-num { background: #ffe8d6; color: #d94f1e; }
+  .topic-header h2 { color: #111; }
+  .subtopic { background: #fff; padding: 1rem 1.25rem; }
+  .subtopic h3 { color: #2563eb; }
+  .subtopic h3::before { background: #2563eb; }
+  .formula-grid { gap: 4px; }
+  .formula-card { background: #f9f9f9; border: 1px solid #ddd; border-radius: 0; padding: 0.7rem 0.9rem; }
+  .formula-card.highlight { border-left: 3px solid #d94f1e; background: #fff8f5; }
+  .formula { color: #111; font-size: 10pt; }
+  .formula-desc { color: #d94f1e; }
+  .variables { color: #555; border-top-color: #eee; font-size: 9pt; }
+  #constants .formula { color: #1d4ed8; }
+  footer { border-top: 1px solid #ccc; color: #888; }
+  footer span { color: #888; }
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 768px) {
+  nav { padding: 0.85rem 1.25rem; }
+  .nav-title { display: none; }
+  header { padding: 2.5rem 1.25rem 2rem; }
+  main { padding: 1.5rem 1.25rem 3rem; }
+  .subtopic { padding: 1.25rem 1rem; }
+  .topic-header { padding: 1rem 1.25rem; }
+  .formula-grid { grid-template-columns: 1fr; }
+  .formula-card.wide { grid-column: auto; }
+  footer { flex-direction: column; gap: 0.4rem; padding: 1.25rem; text-align: center; }
+}
